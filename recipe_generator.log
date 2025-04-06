@@ -1,0 +1,604 @@
+2025-04-06 10:20:58,204 - INFO -  * Restarting with stat
+2025-04-06 10:20:58,759 - WARNING -  * Debugger is active!
+2025-04-06 10:20:58,762 - INFO -  * Debugger PIN: 104-084-848
+2025-04-06 10:20:59,717 - INFO -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2025-04-06 10:21:56,824 - INFO - 127.0.0.1 - - [06/Apr/2025 10:21:56] "OPTIONS /generate_recipe HTTP/1.1" 200 -
+2025-04-06 10:21:56,827 - INFO - Generate recipe request: ingredients=[], preferences={'diet': '', 'time': '', 'style': '', 'category': '', 'language': 'english', 'isRandom': True}
+2025-04-06 10:21:56,828 - INFO - Generated random recipe: Ginger-Soy Tofu Stir-Fry
+2025-04-06 10:21:56,830 - INFO - 127.0.0.1 - - [06/Apr/2025 10:21:56] "POST /generate_recipe HTTP/1.1" 200 -
+2025-04-06 10:31:09,236 - INFO -  * Restarting with stat
+2025-04-06 10:31:09,834 - WARNING -  * Debugger is active!
+2025-04-06 10:31:09,837 - INFO -  * Debugger PIN: 104-084-848
+2025-04-06 10:31:10,701 - INFO -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2025-04-06 10:32:08,154 - INFO - 127.0.0.1 - - [06/Apr/2025 10:32:08] "OPTIONS /generate_recipe HTTP/1.1" 200 -
+2025-04-06 10:32:08,157 - INFO - Generate recipe request: ingredients=[], preferences={'diet': '', 'time': '', 'style': '', 'category': '', 'language': 'english', 'isRandom': True}
+2025-04-06 10:32:08,158 - INFO - Generated random recipe: Southern Black-Eyed Peas and Greens
+2025-04-06 10:32:08,158 - INFO - 127.0.0.1 - - [06/Apr/2025 10:32:08] "POST /generate_recipe HTTP/1.1" 200 -
+2025-04-06 10:32:09,538 - INFO - Generate recipe request: ingredients=[], preferences={'diet': '', 'time': '', 'style': '', 'category': '', 'language': 'english', 'isRandom': True}
+2025-04-06 10:32:09,538 - INFO - Generated random recipe: Southern Black-Eyed Peas and Greens
+2025-04-06 10:32:09,539 - INFO - 127.0.0.1 - - [06/Apr/2025 10:32:09] "POST /generate_recipe HTTP/1.1" 200 -
+2025-04-06 10:32:09,738 - INFO - Generate recipe request: ingredients=[], preferences={'diet': '', 'time': '', 'style': '', 'category': '', 'language': 'english', 'isRandom': True}
+2025-04-06 10:32:09,739 - INFO - Generated random recipe: Southern Black-Eyed Peas and Greens
+2025-04-06 10:32:09,739 - INFO - 127.0.0.1 - - [06/Apr/2025 10:32:09] "POST /generate_recipe HTTP/1.1" 200 -
+2025-04-06 10:32:09,930 - INFO - Generate recipe request: ingredients=[], preferences={'diet': '', 'time': '', 'style': '', 'category': '', 'language': 'english', 'isRandom': True}
+2025-04-06 10:32:09,930 - INFO - Generated random recipe: Southern Black-Eyed Peas and Greens
+2025-04-06 10:32:09,930 - INFO - 127.0.0.1 - - [06/Apr/2025 10:32:09] "POST /generate_recipe HTTP/1.1" 200 -
+2025-04-06 10:32:10,115 - INFO - Generate recipe request: ingredients=[], preferences={'diet': '', 'time': '', 'style': '', 'category': '', 'language': 'english', 'isRandom': True}
+2025-04-06 10:32:10,115 - INFO - Generated random recipe: Southern Black-Eyed Peas and Greens
+2025-04-06 10:32:10,115 - INFO - 127.0.0.1 - - [06/Apr/2025 10:32:10] "POST /generate_recipe HTTP/1.1" 200 -
+2025-04-06 10:32:10,290 - INFO - Generate recipe request: ingredients=[], preferences={'diet': '', 'time': '', 'style': '', 'category': '', 'language': 'english', 'isRandom': True}
+2025-04-06 10:32:10,291 - INFO - Generated random recipe: Southern Black-Eyed Peas and Greens
+2025-04-06 10:32:10,291 - INFO - 127.0.0.1 - - [06/Apr/2025 10:32:10] "POST /generate_recipe HTTP/1.1" 200 -
+2025-04-06 10:32:10,474 - INFO - Generate recipe request: ingredients=[], preferences={'diet': '', 'time': '', 'style': '', 'category': '', 'language': 'english', 'isRandom': True}
+2025-04-06 10:32:10,474 - INFO - Generated random recipe: Southern Black-Eyed Peas and Greens
+2025-04-06 10:32:10,475 - INFO - 127.0.0.1 - - [06/Apr/2025 10:32:10] "POST /generate_recipe HTTP/1.1" 200 -
+2025-04-06 10:32:10,658 - INFO - Generate recipe request: ingredients=[], preferences={'diet': '', 'time': '', 'style': '', 'category': '', 'language': 'english', 'isRandom': True}
+2025-04-06 10:32:10,658 - INFO - Generated random recipe: Southern Black-Eyed Peas and Greens
+2025-04-06 10:32:10,659 - INFO - 127.0.0.1 - - [06/Apr/2025 10:32:10] "POST /generate_recipe HTTP/1.1" 200 -
+2025-04-06 10:32:10,805 - INFO - Generate recipe request: ingredients=[], preferences={'diet': '', 'time': '', 'style': '', 'category': '', 'language': 'english', 'isRandom': True}
+2025-04-06 10:32:10,805 - INFO - Generated random recipe: Southern Black-Eyed Peas and Greens
+2025-04-06 10:32:10,805 - INFO - 127.0.0.1 - - [06/Apr/2025 10:32:10] "POST /generate_recipe HTTP/1.1" 200 -
+2025-04-06 10:34:25,303 - INFO -  * Detected change in 'C:\\Users\\bshoe\\OneDrive\\Desktop\\game_theory\\cooking\\RecipeGenerator\\app.py', reloading
+2025-04-06 10:34:25,352 - INFO -  * Restarting with stat
+2025-04-06 10:54:52,871 - INFO -  * Restarting with stat
+2025-04-06 10:54:53,526 - WARNING -  * Debugger is active!
+2025-04-06 10:54:53,529 - INFO -  * Debugger PIN: 104-084-848
+2025-04-06 10:54:54,408 - INFO -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2025-04-06 10:55:50,032 - INFO - 127.0.0.1 - - [06/Apr/2025 10:55:50] "OPTIONS /generate_recipe HTTP/1.1" 200 -
+2025-04-06 10:55:50,040 - INFO - Generate recipe request: ingredients=[], preferences={'diet': '', 'time': '', 'style': '', 'category': '', 'language': 'english', 'isRandom': True}
+2025-04-06 10:55:50,042 - INFO - Generated random recipe: Cherry Almond Crisp
+2025-04-06 10:55:50,042 - INFO - 127.0.0.1 - - [06/Apr/2025 10:55:50] "POST /generate_recipe HTTP/1.1" 200 -
+2025-04-06 11:09:42,708 - INFO -  * Detected change in 'C:\\Users\\bshoe\\OneDrive\\Desktop\\game_theory\\cooking\\RecipeGenerator\\database.py', reloading
+2025-04-06 11:09:42,761 - INFO -  * Restarting with stat
+2025-04-06 11:09:43,535 - WARNING -  * Debugger is active!
+2025-04-06 11:09:43,539 - INFO -  * Debugger PIN: 104-084-848
+2025-04-06 11:09:44,340 - INFO -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2025-04-06 11:10:13,363 - INFO -  * Detected change in 'C:\\Users\\bshoe\\OneDrive\\Desktop\\game_theory\\cooking\\RecipeGenerator\\app.py', reloading
+2025-04-06 11:10:13,413 - INFO -  * Restarting with stat
+2025-04-06 11:10:14,029 - WARNING -  * Debugger is active!
+2025-04-06 11:10:14,032 - INFO -  * Debugger PIN: 104-084-848
+2025-04-06 11:10:14,845 - INFO -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2025-04-06 11:14:27,389 - INFO - 127.0.0.1 - - [06/Apr/2025 11:14:27] "[31m[1mGET /favorites HTTP/1.1[0m" 401 -
+2025-04-06 11:15:57,434 - INFO - 127.0.0.1 - - [06/Apr/2025 11:15:57] "[31m[1mGET /favorites HTTP/1.1[0m" 401 -
+2025-04-06 11:15:57,438 - INFO - 127.0.0.1 - - [06/Apr/2025 11:15:57] "[31m[1mGET /favorites HTTP/1.1[0m" 401 -
+2025-04-06 11:16:58,106 - INFO -  * Detected change in 'C:\\Users\\bshoe\\OneDrive\\Desktop\\game_theory\\cooking\\RecipeGenerator\\app.py', reloading
+2025-04-06 11:16:58,177 - INFO -  * Restarting with stat
+2025-04-06 11:16:58,844 - WARNING -  * Debugger is active!
+2025-04-06 11:16:58,847 - INFO -  * Debugger PIN: 104-084-848
+2025-04-06 11:16:59,637 - INFO -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2025-04-06 11:17:12,618 - INFO - 127.0.0.1 - - [06/Apr/2025 11:17:12] "[31m[1mGET /favorites HTTP/1.1[0m" 401 -
+2025-04-06 11:17:12,622 - INFO - 127.0.0.1 - - [06/Apr/2025 11:17:12] "[31m[1mGET /favorites HTTP/1.1[0m" 401 -
+2025-04-06 11:20:46,435 - INFO - 127.0.0.1 - - [06/Apr/2025 11:20:46] "[31m[1mGET /favorites HTTP/1.1[0m" 401 -
+2025-04-06 11:20:46,438 - INFO - 127.0.0.1 - - [06/Apr/2025 11:20:46] "[31m[1mGET /favorites HTTP/1.1[0m" 401 -
+2025-04-06 11:21:06,150 - INFO - 127.0.0.1 - - [06/Apr/2025 11:21:06] "[31m[1mGET /favorites HTTP/1.1[0m" 401 -
+2025-04-06 11:21:06,160 - INFO - 127.0.0.1 - - [06/Apr/2025 11:21:06] "[31m[1mGET /favorites HTTP/1.1[0m" 401 -
+2025-04-06 11:22:04,718 - INFO - 127.0.0.1 - - [06/Apr/2025 11:22:04] "OPTIONS /generate_recipe HTTP/1.1" 200 -
+2025-04-06 11:22:04,726 - INFO - Generate recipe request: ingredients=[], preferences={'diet': '', 'time': '', 'style': '', 'category': '', 'language': 'english', 'isRandom': True}
+2025-04-06 11:22:04,730 - INFO - 127.0.0.1 - - [06/Apr/2025 11:22:04] "[31m[1mPOST /generate_recipe HTTP/1.1[0m" 403 -
+2025-04-06 11:23:00,956 - INFO - 127.0.0.1 - - [06/Apr/2025 11:23:00] "[31m[1mGET /favorites HTTP/1.1[0m" 401 -
+2025-04-06 11:23:00,959 - INFO - 127.0.0.1 - - [06/Apr/2025 11:23:00] "[31m[1mGET /favorites HTTP/1.1[0m" 401 -
+2025-04-06 11:23:18,703 - INFO - 127.0.0.1 - - [06/Apr/2025 11:23:18] "[31m[1mGET /favorites HTTP/1.1[0m" 401 -
+2025-04-06 11:23:18,712 - INFO - 127.0.0.1 - - [06/Apr/2025 11:23:18] "[31m[1mGET /favorites HTTP/1.1[0m" 401 -
+2025-04-06 11:23:23,105 - INFO - 127.0.0.1 - - [06/Apr/2025 11:23:23] "[31m[1mGET /favorites HTTP/1.1[0m" 401 -
+2025-04-06 11:23:23,110 - INFO - 127.0.0.1 - - [06/Apr/2025 11:23:23] "[31m[1mGET /favorites HTTP/1.1[0m" 401 -
+2025-04-06 11:23:29,002 - INFO - 127.0.0.1 - - [06/Apr/2025 11:23:29] "OPTIONS /generate_recipe HTTP/1.1" 200 -
+2025-04-06 11:23:29,005 - INFO - Generate recipe request: ingredients=[], preferences={'diet': '', 'time': '', 'style': '', 'category': '', 'language': 'english', 'isRandom': True}
+2025-04-06 11:23:29,008 - INFO - 127.0.0.1 - - [06/Apr/2025 11:23:29] "[31m[1mPOST /generate_recipe HTTP/1.1[0m" 403 -
+2025-04-06 11:24:30,130 - INFO -  * Restarting with stat
+2025-04-06 11:24:30,774 - WARNING -  * Debugger is active!
+2025-04-06 11:24:30,777 - INFO -  * Debugger PIN: 104-084-848
+2025-04-06 11:24:31,657 - INFO -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2025-04-06 11:25:18,964 - INFO - 127.0.0.1 - - [06/Apr/2025 11:25:18] "[35m[1mGET /favorites HTTP/1.1[0m" 500 -
+2025-04-06 11:25:23,072 - INFO - 127.0.0.1 - - [06/Apr/2025 11:25:23] "[35m[1mGET /favorites HTTP/1.1[0m" 500 -
+2025-04-06 11:26:10,043 - INFO - 127.0.0.1 - - [06/Apr/2025 11:26:10] "OPTIONS /generate_recipe HTTP/1.1" 200 -
+2025-04-06 11:26:14,182 - INFO - 127.0.0.1 - - [06/Apr/2025 11:26:14] "[35m[1mPOST /generate_recipe HTTP/1.1[0m" 500 -
+2025-04-06 11:27:41,226 - INFO -  * Detected change in 'C:\\Users\\bshoe\\OneDrive\\Desktop\\game_theory\\cooking\\RecipeGenerator\\app.py', reloading
+2025-04-06 11:27:41,290 - INFO -  * Restarting with stat
+2025-04-06 11:27:41,923 - WARNING -  * Debugger is active!
+2025-04-06 11:27:41,926 - INFO -  * Debugger PIN: 104-084-848
+2025-04-06 11:27:42,742 - INFO -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2025-04-06 11:27:58,149 - INFO - 127.0.0.1 - - [06/Apr/2025 11:27:58] "[31m[1mGET /favorites HTTP/1.1[0m" 401 -
+2025-04-06 11:27:58,153 - INFO - 127.0.0.1 - - [06/Apr/2025 11:27:58] "[31m[1mGET /favorites HTTP/1.1[0m" 401 -
+2025-04-06 11:28:23,858 - INFO - 127.0.0.1 - - [06/Apr/2025 11:28:23] "OPTIONS /login HTTP/1.1" 200 -
+2025-04-06 11:28:23,861 - INFO - 127.0.0.1 - - [06/Apr/2025 11:28:23] "[31m[1mPOST /login HTTP/1.1[0m" 401 -
+2025-04-06 11:28:36,385 - INFO - 127.0.0.1 - - [06/Apr/2025 11:28:36] "OPTIONS /register HTTP/1.1" 200 -
+2025-04-06 11:28:36,665 - INFO - 127.0.0.1 - - [06/Apr/2025 11:28:36] "[35m[1mPOST /register HTTP/1.1[0m" 201 -
+2025-04-06 11:28:38,393 - INFO - 127.0.0.1 - - [06/Apr/2025 11:28:38] "OPTIONS /login HTTP/1.1" 200 -
+2025-04-06 11:28:38,614 - INFO - 127.0.0.1 - - [06/Apr/2025 11:28:38] "POST /login HTTP/1.1" 200 -
+2025-04-06 11:28:47,801 - INFO - 127.0.0.1 - - [06/Apr/2025 11:28:47] "OPTIONS /generate_recipe HTTP/1.1" 200 -
+2025-04-06 11:28:47,805 - INFO - Generate recipe request: ingredients=[], preferences={'diet': '', 'time': '', 'style': '', 'category': '', 'language': 'english', 'isRandom': True}
+2025-04-06 11:28:47,807 - ERROR - Error generating recipe: 'title'
+2025-04-06 11:28:47,807 - INFO - 127.0.0.1 - - [06/Apr/2025 11:28:47] "[35m[1mPOST /generate_recipe HTTP/1.1[0m" 500 -
+2025-04-06 11:29:01,001 - INFO - 127.0.0.1 - - [06/Apr/2025 11:29:01] "OPTIONS /generate_recipe HTTP/1.1" 200 -
+2025-04-06 11:29:01,004 - INFO - Generate recipe request: ingredients=[], preferences={'diet': '', 'time': '', 'style': '', 'category': '', 'language': 'english', 'isRandom': True}
+2025-04-06 11:29:01,005 - ERROR - Error generating recipe: 'title'
+2025-04-06 11:29:01,005 - INFO - 127.0.0.1 - - [06/Apr/2025 11:29:01] "[35m[1mPOST /generate_recipe HTTP/1.1[0m" 500 -
+2025-04-06 11:29:01,882 - INFO - Generate recipe request: ingredients=[], preferences={'diet': '', 'time': '', 'style': '', 'category': '', 'language': 'english', 'isRandom': True}
+2025-04-06 11:29:01,882 - ERROR - Error generating recipe: 'title'
+2025-04-06 11:29:01,882 - INFO - 127.0.0.1 - - [06/Apr/2025 11:29:01] "[35m[1mPOST /generate_recipe HTTP/1.1[0m" 500 -
+2025-04-06 11:29:46,794 - INFO - 127.0.0.1 - - [06/Apr/2025 11:29:46] "OPTIONS /generate_recipe HTTP/1.1" 200 -
+2025-04-06 11:29:46,799 - INFO - Generate recipe request: ingredients=[], preferences={'diet': '', 'time': '', 'style': '', 'category': '', 'language': 'english', 'isRandom': True}
+2025-04-06 11:29:46,799 - ERROR - Error generating recipe: 'title'
+2025-04-06 11:29:46,800 - INFO - 127.0.0.1 - - [06/Apr/2025 11:29:46] "[35m[1mPOST /generate_recipe HTTP/1.1[0m" 500 -
+2025-04-06 11:29:58,690 - INFO - 127.0.0.1 - - [06/Apr/2025 11:29:58] "OPTIONS /generate_recipe HTTP/1.1" 200 -
+2025-04-06 11:29:58,693 - INFO - Generate recipe request: ingredients=['chicken', 'rice'], preferences={'diet': '', 'time': '', 'style': '', 'category': '', 'language': 'english', 'isRandom': False}
+2025-04-06 11:29:58,696 - INFO - Generated dynamic recipe: Chicken Curry Avocado Delight
+2025-04-06 11:29:58,696 - INFO - 127.0.0.1 - - [06/Apr/2025 11:29:58] "POST /generate_recipe HTTP/1.1" 200 -
+2025-04-06 11:30:18,274 - INFO - 127.0.0.1 - - [06/Apr/2025 11:30:18] "OPTIONS /favorites/add HTTP/1.1" 200 -
+2025-04-06 11:30:30,034 - INFO - 127.0.0.1 - - [06/Apr/2025 11:30:30] "OPTIONS /favorites/add HTTP/1.1" 200 -
+2025-04-06 11:30:41,450 - INFO - 127.0.0.1 - - [06/Apr/2025 11:30:41] "OPTIONS /generate_recipe HTTP/1.1" 200 -
+2025-04-06 11:30:41,453 - INFO - Generate recipe request: ingredients=['chicken', 'rice'], preferences={'diet': '', 'time': '', 'style': '', 'category': '', 'language': 'english', 'isRandom': True}
+2025-04-06 11:30:41,454 - ERROR - Error generating recipe: 'title'
+2025-04-06 11:30:41,454 - INFO - 127.0.0.1 - - [06/Apr/2025 11:30:41] "[35m[1mPOST /generate_recipe HTTP/1.1[0m" 500 -
+2025-04-06 11:32:25,686 - INFO - 127.0.0.1 - - [06/Apr/2025 11:32:25] "POST /logout HTTP/1.1" 200 -
+2025-04-06 11:32:27,122 - INFO - 127.0.0.1 - - [06/Apr/2025 11:32:27] "POST /logout HTTP/1.1" 200 -
+2025-04-06 11:33:29,715 - INFO - 127.0.0.1 - - [06/Apr/2025 11:33:29] "POST /logout HTTP/1.1" 200 -
+2025-04-06 11:33:33,633 - INFO - 127.0.0.1 - - [06/Apr/2025 11:33:33] "OPTIONS /generate_recipe HTTP/1.1" 200 -
+2025-04-06 11:33:33,636 - INFO - Generate recipe request: ingredients=['chicken', 'rice'], preferences={'diet': '', 'time': '', 'style': '', 'category': '', 'language': 'english', 'isRandom': False}
+2025-04-06 11:33:33,638 - INFO - Generated dynamic recipe: Chicken Coconut milk Rosemary Delight
+2025-04-06 11:33:33,639 - INFO - 127.0.0.1 - - [06/Apr/2025 11:33:33] "POST /generate_recipe HTTP/1.1" 200 -
+2025-04-06 11:33:36,249 - INFO - Generate recipe request: ingredients=['chicken', 'rice'], preferences={'diet': '', 'time': '', 'style': '', 'category': '', 'language': 'spanish', 'isRandom': False}
+2025-04-06 11:33:36,251 - INFO - Generated dynamic recipe: Chicken Honey Rosemary Delicia
+2025-04-06 11:33:36,252 - INFO - 127.0.0.1 - - [06/Apr/2025 11:33:36] "POST /generate_recipe HTTP/1.1" 200 -
+2025-04-06 11:33:38,130 - INFO - Generate recipe request: ingredients=['chicken', 'rice'], preferences={'diet': '', 'time': '', 'style': '', 'category': '', 'language': 'english', 'isRandom': True}
+2025-04-06 11:33:38,130 - ERROR - Error generating recipe: 'title'
+2025-04-06 11:33:38,130 - INFO - 127.0.0.1 - - [06/Apr/2025 11:33:38] "[35m[1mPOST /generate_recipe HTTP/1.1[0m" 500 -
+2025-04-06 11:33:45,745 - INFO - 127.0.0.1 - - [06/Apr/2025 11:33:45] "OPTIONS /generate_recipe HTTP/1.1" 200 -
+2025-04-06 11:33:45,748 - INFO - Generate recipe request: ingredients=['chicken', 'rice'], preferences={'diet': '', 'time': '', 'style': '', 'category': '', 'language': 'english', 'isRandom': False}
+2025-04-06 11:33:45,750 - INFO - Generated dynamic recipe: Chicken Rosemary Garlic Delight
+2025-04-06 11:33:45,750 - INFO - 127.0.0.1 - - [06/Apr/2025 11:33:45] "POST /generate_recipe HTTP/1.1" 200 -
+2025-04-06 11:33:48,242 - INFO - Generate recipe request: ingredients=['chicken', 'rice', 'cheese'], preferences={'diet': '', 'time': '', 'style': '', 'category': '', 'language': 'english', 'isRandom': False}
+2025-04-06 11:33:48,245 - INFO - Generated dynamic recipe: Chicken Curry Avocado Delight
+2025-04-06 11:33:48,245 - INFO - 127.0.0.1 - - [06/Apr/2025 11:33:48] "POST /generate_recipe HTTP/1.1" 200 -
+2025-04-06 11:35:45,621 - INFO -  * Detected change in 'C:\\Users\\bshoe\\OneDrive\\Desktop\\game_theory\\cooking\\RecipeGenerator\\app.py', reloading
+2025-04-06 11:35:45,701 - INFO -  * Restarting with stat
+2025-04-06 11:35:46,416 - WARNING -  * Debugger is active!
+2025-04-06 11:35:46,419 - INFO -  * Debugger PIN: 104-084-848
+2025-04-06 11:35:47,341 - INFO -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2025-04-06 11:41:49,944 - INFO - Fetching favorites, current session: <SecureCookieSession {}>
+2025-04-06 11:41:49,945 - INFO - Getting user info, current session: <SecureCookieSession {}>
+2025-04-06 11:41:49,945 - WARNING - User not logged in when fetching favorites
+2025-04-06 11:41:49,946 - INFO - 127.0.0.1 - - [06/Apr/2025 11:41:49] "[31m[1mGET /user HTTP/1.1[0m" 401 -
+2025-04-06 11:41:49,947 - INFO - 127.0.0.1 - - [06/Apr/2025 11:41:49] "[31m[1mGET /favorites HTTP/1.1[0m" 401 -
+2025-04-06 11:42:13,104 - INFO - Fetching favorites, current session: <SecureCookieSession {}>
+2025-04-06 11:42:13,104 - WARNING - User not logged in when fetching favorites
+2025-04-06 11:42:13,105 - INFO - 127.0.0.1 - - [06/Apr/2025 11:42:13] "[31m[1mGET /favorites HTTP/1.1[0m" 401 -
+2025-04-06 11:42:13,112 - INFO - Getting user info, current session: <SecureCookieSession {}>
+2025-04-06 11:42:13,112 - INFO - 127.0.0.1 - - [06/Apr/2025 11:42:13] "[31m[1mGET /user HTTP/1.1[0m" 401 -
+2025-04-06 11:42:14,410 - INFO - 127.0.0.1 - - [06/Apr/2025 11:42:14] "OPTIONS /login HTTP/1.1" 200 -
+2025-04-06 11:42:14,612 - INFO - User logged in: bshoemak, session: <SecureCookieSession {'user_id': 1, 'username': 'bshoemak', 'subscription_status': 'free'}>
+2025-04-06 11:42:14,613 - INFO - 127.0.0.1 - - [06/Apr/2025 11:42:14] "POST /login HTTP/1.1" 200 -
+2025-04-06 11:42:14,618 - INFO - Fetching favorites, current session: <SecureCookieSession {}>
+2025-04-06 11:42:14,618 - WARNING - User not logged in when fetching favorites
+2025-04-06 11:42:14,619 - INFO - 127.0.0.1 - - [06/Apr/2025 11:42:14] "[31m[1mGET /favorites HTTP/1.1[0m" 401 -
+2025-04-06 11:42:17,193 - INFO - 127.0.0.1 - - [06/Apr/2025 11:42:17] "OPTIONS /generate_recipe HTTP/1.1" 200 -
+2025-04-06 11:42:17,197 - INFO - Generate recipe request: ingredients=[], preferences={'diet': '', 'time': '', 'style': '', 'category': '', 'language': 'english', 'isRandom': True}
+2025-04-06 11:42:17,199 - INFO - 127.0.0.1 - - [06/Apr/2025 11:42:17] "[31m[1mPOST /generate_recipe HTTP/1.1[0m" 403 -
+2025-04-06 11:42:44,274 - INFO - 127.0.0.1 - - [06/Apr/2025 11:42:44] "OPTIONS /generate_recipe HTTP/1.1" 200 -
+2025-04-06 11:42:44,278 - INFO - Generate recipe request: ingredients=[], preferences={'diet': '', 'time': '', 'style': '', 'category': '', 'language': 'english', 'isRandom': True}
+2025-04-06 11:42:44,280 - ERROR - Error generating recipe: 'title'
+2025-04-06 11:42:44,281 - INFO - 127.0.0.1 - - [06/Apr/2025 11:42:44] "[35m[1mPOST /generate_recipe HTTP/1.1[0m" 500 -
+2025-04-06 11:43:02,307 - INFO - Logging out user, current session: <SecureCookieSession {}>
+2025-04-06 11:43:02,307 - INFO - Session after logout: <SecureCookieSession {}>
+2025-04-06 11:43:02,308 - INFO - 127.0.0.1 - - [06/Apr/2025 11:43:02] "POST /logout HTTP/1.1" 200 -
+2025-04-06 11:43:08,491 - INFO - 127.0.0.1 - - [06/Apr/2025 11:43:08] "OPTIONS /login HTTP/1.1" 200 -
+2025-04-06 11:43:08,692 - INFO - User logged in: bshoemak, session: <SecureCookieSession {'user_id': 1, 'username': 'bshoemak', 'subscription_status': 'free'}>
+2025-04-06 11:43:08,692 - INFO - 127.0.0.1 - - [06/Apr/2025 11:43:08] "POST /login HTTP/1.1" 200 -
+2025-04-06 11:43:08,696 - INFO - Fetching favorites, current session: <SecureCookieSession {}>
+2025-04-06 11:43:08,697 - WARNING - User not logged in when fetching favorites
+2025-04-06 11:43:08,697 - INFO - 127.0.0.1 - - [06/Apr/2025 11:43:08] "[31m[1mGET /favorites HTTP/1.1[0m" 401 -
+2025-04-06 11:43:32,218 - INFO - 127.0.0.1 - - [06/Apr/2025 11:43:32] "OPTIONS /generate_recipe HTTP/1.1" 200 -
+2025-04-06 11:43:32,221 - INFO - Generate recipe request: ingredients=[], preferences={'diet': '', 'time': '', 'style': '', 'category': '', 'language': 'english', 'isRandom': True}
+2025-04-06 11:43:32,221 - ERROR - Error generating recipe: 'title'
+2025-04-06 11:43:32,222 - INFO - 127.0.0.1 - - [06/Apr/2025 11:43:32] "[35m[1mPOST /generate_recipe HTTP/1.1[0m" 500 -
+2025-04-06 11:44:23,730 - INFO - 127.0.0.1 - - [06/Apr/2025 11:44:23] "OPTIONS /generate_recipe HTTP/1.1" 200 -
+2025-04-06 11:44:23,733 - INFO - Generate recipe request: ingredients=['butternut squash', 'chicken', 'beans'], preferences={'diet': '', 'time': '', 'style': '', 'category': '', 'language': 'english', 'isRandom': False}
+2025-04-06 11:44:23,735 - INFO - Generated dynamic recipe: Butternut squash Cinnamon Honey Delight
+2025-04-06 11:44:23,736 - INFO - 127.0.0.1 - - [06/Apr/2025 11:44:23] "POST /generate_recipe HTTP/1.1" 200 -
+2025-04-06 11:44:27,724 - INFO - 127.0.0.1 - - [06/Apr/2025 11:44:27] "OPTIONS /favorites/add HTTP/1.1" 200 -
+2025-04-06 11:44:27,727 - INFO - 127.0.0.1 - - [06/Apr/2025 11:44:27] "[31m[1mPOST /favorites/add HTTP/1.1[0m" 401 -
+2025-04-06 11:47:31,084 - INFO - Logging out user, current session: <SecureCookieSession {}>
+2025-04-06 11:47:31,084 - INFO - Session after logout: <SecureCookieSession {}>
+2025-04-06 11:47:31,085 - INFO - 127.0.0.1 - - [06/Apr/2025 11:47:31] "POST /logout HTTP/1.1" 200 -
+2025-04-06 11:47:36,713 - INFO - 127.0.0.1 - - [06/Apr/2025 11:47:36] "OPTIONS /generate_recipe HTTP/1.1" 200 -
+2025-04-06 11:47:36,717 - INFO - Generate recipe request: ingredients=['butternut squash', 'chicken', 'beans'], preferences={'diet': '', 'time': '', 'style': '', 'category': '', 'language': 'english', 'isRandom': False}
+2025-04-06 11:47:36,719 - INFO - Generated dynamic recipe: Butternut squash Maple syrup Goat cheese Delight
+2025-04-06 11:47:36,719 - INFO - 127.0.0.1 - - [06/Apr/2025 11:47:36] "POST /generate_recipe HTTP/1.1" 200 -
+2025-04-06 11:47:46,002 - INFO - 127.0.0.1 - - [06/Apr/2025 11:47:46] "OPTIONS /favorites/add HTTP/1.1" 200 -
+2025-04-06 11:47:46,007 - INFO - 127.0.0.1 - - [06/Apr/2025 11:47:46] "[31m[1mPOST /favorites/add HTTP/1.1[0m" 401 -
+2025-04-06 11:48:17,049 - INFO - 127.0.0.1 - - [06/Apr/2025 11:48:17] "OPTIONS /login HTTP/1.1" 200 -
+2025-04-06 11:48:17,260 - INFO - User logged in: bshoemak, session: <SecureCookieSession {'user_id': 1, 'username': 'bshoemak', 'subscription_status': 'free'}>
+2025-04-06 11:48:17,261 - INFO - 127.0.0.1 - - [06/Apr/2025 11:48:17] "POST /login HTTP/1.1" 200 -
+2025-04-06 11:48:17,266 - INFO - Fetching favorites, current session: <SecureCookieSession {}>
+2025-04-06 11:48:17,267 - WARNING - User not logged in when fetching favorites
+2025-04-06 11:48:17,267 - INFO - 127.0.0.1 - - [06/Apr/2025 11:48:17] "[31m[1mGET /favorites HTTP/1.1[0m" 401 -
+2025-04-06 11:48:28,405 - INFO - 127.0.0.1 - - [06/Apr/2025 11:48:28] "OPTIONS /generate_recipe HTTP/1.1" 200 -
+2025-04-06 11:48:28,411 - INFO - Generate recipe request: ingredients=['butternut squash', 'chicken', 'beans'], preferences={'diet': '', 'time': '', 'style': '', 'category': '', 'language': 'english', 'isRandom': False}
+2025-04-06 11:48:28,413 - INFO - Generated dynamic recipe: Butternut squash Nutmeg Cinnamon Delight
+2025-04-06 11:48:28,414 - INFO - 127.0.0.1 - - [06/Apr/2025 11:48:28] "POST /generate_recipe HTTP/1.1" 200 -
+2025-04-06 11:48:30,636 - INFO - Generate recipe request: ingredients=['butternut squash', 'chicken', 'beans'], preferences={'diet': '', 'time': '', 'style': 'mediterranean', 'category': '', 'language': 'english', 'isRandom': False}
+2025-04-06 11:48:30,643 - INFO - Generated dynamic recipe: Mediterranean Butternut squash Goat cheese Rosemary
+2025-04-06 11:48:30,643 - INFO - 127.0.0.1 - - [06/Apr/2025 11:48:30] "POST /generate_recipe HTTP/1.1" 200 -
+2025-04-06 11:48:32,194 - INFO - Generate recipe request: ingredients=['butternut squash', 'chicken', 'beans'], preferences={'diet': '', 'time': '', 'style': 'southern', 'category': '', 'language': 'english', 'isRandom': False}
+2025-04-06 11:48:32,196 - INFO - Generated dynamic recipe: Southern Butternut squash Goat cheese Sage
+2025-04-06 11:48:32,196 - INFO - 127.0.0.1 - - [06/Apr/2025 11:48:32] "POST /generate_recipe HTTP/1.1" 200 -
+2025-04-06 11:51:22,818 - INFO - 127.0.0.1 - - [06/Apr/2025 11:51:22] "OPTIONS /generate_recipe HTTP/1.1" 200 -
+2025-04-06 11:51:22,824 - INFO - Generate recipe request: ingredients=['butternut squash', 'chicken', 'beans'], preferences={'diet': '', 'time': '', 'style': '', 'category': '', 'language': 'english', 'isRandom': False}
+2025-04-06 11:51:22,827 - INFO - Generated dynamic recipe: Butternut squash Cinnamon Sage Delight
+2025-04-06 11:51:22,828 - INFO - 127.0.0.1 - - [06/Apr/2025 11:51:22] "POST /generate_recipe HTTP/1.1" 200 -
+2025-04-06 11:51:30,451 - INFO - 127.0.0.1 - - [06/Apr/2025 11:51:30] "OPTIONS /favorites/add HTTP/1.1" 200 -
+2025-04-06 11:51:30,455 - INFO - 127.0.0.1 - - [06/Apr/2025 11:51:30] "[31m[1mPOST /favorites/add HTTP/1.1[0m" 401 -
+2025-04-06 12:05:34,495 - INFO - 127.0.0.1 - - [06/Apr/2025 12:05:34] "OPTIONS /generate_recipe HTTP/1.1" 200 -
+2025-04-06 12:05:34,498 - INFO - Generate recipe request: ingredients=['butternut squash', 'chicken', 'beans'], preferences={'diet': '', 'time': '', 'style': '', 'category': '', 'language': 'english', 'isRandom': True}
+2025-04-06 12:05:34,499 - ERROR - Error generating recipe: 'title'
+2025-04-06 12:05:34,500 - INFO - 127.0.0.1 - - [06/Apr/2025 12:05:34] "[35m[1mPOST /generate_recipe HTTP/1.1[0m" 500 -
+2025-04-06 12:05:38,930 - INFO - Logging out user, current session: <SecureCookieSession {}>
+2025-04-06 12:05:38,930 - INFO - Session after logout: <SecureCookieSession {}>
+2025-04-06 12:05:38,930 - INFO - 127.0.0.1 - - [06/Apr/2025 12:05:38] "POST /logout HTTP/1.1" 200 -
+2025-04-06 12:05:45,961 - INFO - 127.0.0.1 - - [06/Apr/2025 12:05:45] "OPTIONS /generate_recipe HTTP/1.1" 200 -
+2025-04-06 12:05:45,963 - INFO - Generate recipe request: ingredients=['butternut squash', 'chicken', 'beans'], preferences={'diet': '', 'time': '', 'style': '', 'category': '', 'language': 'english', 'isRandom': True}
+2025-04-06 12:05:45,964 - ERROR - Error generating recipe: 'title'
+2025-04-06 12:05:45,964 - INFO - 127.0.0.1 - - [06/Apr/2025 12:05:45] "[35m[1mPOST /generate_recipe HTTP/1.1[0m" 500 -
+2025-04-06 12:13:20,906 - INFO - 127.0.0.1 - - [06/Apr/2025 12:13:20] "OPTIONS /generate_recipe HTTP/1.1" 200 -
+2025-04-06 12:13:20,909 - INFO - Generate recipe request: ingredients=['butternut squash', 'chicken', 'beans'], preferences={'diet': '', 'time': '', 'style': '', 'category': '', 'language': 'english', 'isRandom': True}
+2025-04-06 12:13:20,909 - ERROR - Error generating recipe: 'title'
+2025-04-06 12:13:20,910 - INFO - 127.0.0.1 - - [06/Apr/2025 12:13:20] "[35m[1mPOST /generate_recipe HTTP/1.1[0m" 500 -
+2025-04-06 12:13:22,569 - INFO - Generate recipe request: ingredients=['butternut squash', 'chicken', 'beans'], preferences={'diet': '', 'time': '', 'style': '', 'category': '', 'language': 'english', 'isRandom': False}
+2025-04-06 12:13:22,573 - INFO - Generated dynamic recipe: Butternut squash Rosemary Maple syrup Delight
+2025-04-06 12:13:22,573 - INFO - 127.0.0.1 - - [06/Apr/2025 12:13:22] "POST /generate_recipe HTTP/1.1" 200 -
+2025-04-06 12:20:29,556 - INFO -  * Detected change in 'C:\\Users\\bshoe\\OneDrive\\Desktop\\game_theory\\cooking\\RecipeGenerator\\app.py', reloading
+2025-04-06 12:20:29,615 - INFO -  * Restarting with stat
+2025-04-06 12:20:31,370 - WARNING -  * Debugger is active!
+2025-04-06 12:20:31,373 - INFO -  * Debugger PIN: 104-084-848
+2025-04-06 12:20:32,167 - INFO -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2025-04-06 12:20:52,030 - INFO - Fetching favorites, current session: <SecureCookieSession {}>
+2025-04-06 12:20:52,031 - WARNING - User not logged in when fetching favorites
+2025-04-06 12:20:52,032 - INFO - 127.0.0.1 - - [06/Apr/2025 12:20:52] "[31m[1mGET /favorites HTTP/1.1[0m" 401 -
+2025-04-06 12:20:52,032 - INFO - Getting user info, current session: <SecureCookieSession {}>
+2025-04-06 12:20:52,034 - INFO - 127.0.0.1 - - [06/Apr/2025 12:20:52] "[31m[1mGET /user HTTP/1.1[0m" 401 -
+2025-04-06 12:21:06,178 - INFO - Fetching favorites, current session: <SecureCookieSession {}>
+2025-04-06 12:21:06,178 - WARNING - User not logged in when fetching favorites
+2025-04-06 12:21:06,178 - INFO - Getting user info, current session: <SecureCookieSession {}>
+2025-04-06 12:21:06,179 - INFO - 127.0.0.1 - - [06/Apr/2025 12:21:06] "[31m[1mGET /favorites HTTP/1.1[0m" 401 -
+2025-04-06 12:21:06,179 - INFO - 127.0.0.1 - - [06/Apr/2025 12:21:06] "[31m[1mGET /user HTTP/1.1[0m" 401 -
+2025-04-06 12:21:35,587 - INFO -  * Detected change in 'C:\\Users\\bshoe\\OneDrive\\Desktop\\game_theory\\cooking\\RecipeGenerator\\database.py', reloading
+2025-04-06 12:21:35,643 - INFO -  * Restarting with stat
+2025-04-06 12:21:36,300 - WARNING -  * Debugger is active!
+2025-04-06 12:21:36,303 - INFO -  * Debugger PIN: 104-084-848
+2025-04-06 12:21:37,122 - INFO -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2025-04-06 12:21:50,891 - INFO - Fetching favorites, current session: <SecureCookieSession {}>
+2025-04-06 12:21:50,891 - WARNING - User not logged in when fetching favorites
+2025-04-06 12:21:50,896 - INFO - Getting user info, current session: <SecureCookieSession {}>
+2025-04-06 12:21:50,913 - INFO - 127.0.0.1 - - [06/Apr/2025 12:21:50] "[31m[1mGET /favorites HTTP/1.1[0m" 401 -
+2025-04-06 12:21:50,914 - INFO - 127.0.0.1 - - [06/Apr/2025 12:21:50] "[31m[1mGET /user HTTP/1.1[0m" 401 -
+2025-04-06 12:21:54,841 - INFO - 127.0.0.1 - - [06/Apr/2025 12:21:54] "OPTIONS /generate_recipe HTTP/1.1" 200 -
+2025-04-06 12:21:54,844 - INFO - Generate recipe request: ingredients=[], preferences={'diet': '', 'time': '', 'style': '', 'category': '', 'language': 'english', 'isRandom': True}
+2025-04-06 12:21:54,847 - INFO - 127.0.0.1 - - [06/Apr/2025 12:21:54] "[31m[1mPOST /generate_recipe HTTP/1.1[0m" 403 -
+2025-04-06 12:22:11,025 - INFO - 127.0.0.1 - - [06/Apr/2025 12:22:11] "OPTIONS /generate_recipe HTTP/1.1" 200 -
+2025-04-06 12:22:11,031 - INFO - Generate recipe request: ingredients=['chicken', 'rice', 'cheese'], preferences={'diet': '', 'time': '', 'style': '', 'category': '', 'language': 'english', 'isRandom': False}
+2025-04-06 12:22:11,195 - INFO - Generated dynamic recipe: Chicken Ginger Lemon Delight
+2025-04-06 12:22:11,196 - INFO - 127.0.0.1 - - [06/Apr/2025 12:22:11] "POST /generate_recipe HTTP/1.1" 200 -
+2025-04-06 12:22:15,026 - INFO - 127.0.0.1 - - [06/Apr/2025 12:22:15] "OPTIONS /favorites/add HTTP/1.1" 200 -
+2025-04-06 12:22:15,031 - INFO - 127.0.0.1 - - [06/Apr/2025 12:22:15] "[31m[1mPOST /favorites/add HTTP/1.1[0m" 401 -
+2025-04-06 12:22:29,250 - INFO - 127.0.0.1 - - [06/Apr/2025 12:22:29] "OPTIONS /login HTTP/1.1" 200 -
+2025-04-06 12:22:29,461 - INFO - User logged in: bshoemak, session: <SecureCookieSession {'user_id': 1, 'username': 'bshoemak', 'subscription_status': 'free'}>
+2025-04-06 12:22:29,462 - INFO - 127.0.0.1 - - [06/Apr/2025 12:22:29] "POST /login HTTP/1.1" 200 -
+2025-04-06 12:22:29,467 - INFO - Fetching favorites, current session: <SecureCookieSession {}>
+2025-04-06 12:22:29,467 - WARNING - User not logged in when fetching favorites
+2025-04-06 12:22:29,467 - INFO - 127.0.0.1 - - [06/Apr/2025 12:22:29] "[31m[1mGET /favorites HTTP/1.1[0m" 401 -
+2025-04-06 12:22:31,833 - INFO - 127.0.0.1 - - [06/Apr/2025 12:22:31] "OPTIONS /generate_recipe HTTP/1.1" 200 -
+2025-04-06 12:22:31,837 - INFO - Generate recipe request: ingredients=['chicken', 'rice', 'cheese'], preferences={'diet': '', 'time': '', 'style': '', 'category': '', 'language': 'english', 'isRandom': True}
+2025-04-06 12:22:31,839 - ERROR - Error generating recipe: 'title'
+2025-04-06 12:22:31,839 - INFO - 127.0.0.1 - - [06/Apr/2025 12:22:31] "[35m[1mPOST /generate_recipe HTTP/1.1[0m" 500 -
+2025-04-06 12:22:53,609 - INFO - 127.0.0.1 - - [06/Apr/2025 12:22:53] "OPTIONS /generate_recipe HTTP/1.1" 200 -
+2025-04-06 12:22:53,612 - INFO - Generate recipe request: ingredients=['chicken', 'rice', 'cheese'], preferences={'diet': '', 'time': '', 'style': '', 'category': '', 'language': 'english', 'isRandom': True}
+2025-04-06 12:22:53,613 - ERROR - Error generating recipe: 'title'
+2025-04-06 12:22:53,613 - INFO - 127.0.0.1 - - [06/Apr/2025 12:22:53] "[35m[1mPOST /generate_recipe HTTP/1.1[0m" 500 -
+2025-04-06 12:25:40,863 - INFO -  * Detected change in 'C:\\Users\\bshoe\\OneDrive\\Desktop\\game_theory\\cooking\\RecipeGenerator\\app.py', reloading
+2025-04-06 12:25:40,928 - INFO -  * Restarting with stat
+2025-04-06 12:25:41,599 - WARNING -  * Debugger is active!
+2025-04-06 12:25:41,602 - INFO -  * Debugger PIN: 104-084-848
+2025-04-06 12:25:42,417 - INFO -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2025-04-06 12:27:37,092 - INFO -  * Detected change in 'C:\\Users\\bshoe\\OneDrive\\Desktop\\game_theory\\cooking\\RecipeGenerator\\recipe_generator.py', reloading
+2025-04-06 12:27:37,160 - INFO -  * Restarting with stat
+2025-04-06 12:35:16,998 - INFO - Recipes table already has 16 entries
+2025-04-06 12:35:16,999 - INFO - Database initialized successfully
+2025-04-06 12:35:17,032 - INFO -  * Restarting with stat
+2025-04-06 12:35:17,615 - INFO - Recipes table already has 16 entries
+2025-04-06 12:35:17,615 - INFO - Database initialized successfully
+2025-04-06 12:35:17,632 - WARNING -  * Debugger is active!
+2025-04-06 12:35:17,634 - INFO -  * Debugger PIN: 104-084-848
+2025-04-06 12:35:18,435 - INFO -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2025-04-06 12:35:29,739 - INFO - 127.0.0.1 - - [06/Apr/2025 12:35:29] "OPTIONS /generate_recipe HTTP/1.1" 200 -
+2025-04-06 12:35:29,746 - INFO - Generate recipe request: ingredients=[], preferences={'diet': '', 'time': '', 'style': '', 'category': '', 'language': 'english', 'isRandom': True}
+2025-04-06 12:35:29,749 - ERROR - Error generating recipe: 'title'
+2025-04-06 12:35:29,750 - INFO - 127.0.0.1 - - [06/Apr/2025 12:35:29] "[35m[1mPOST /generate_recipe HTTP/1.1[0m" 500 -
+2025-04-06 12:35:30,552 - INFO - Generate recipe request: ingredients=[], preferences={'diet': '', 'time': '', 'style': '', 'category': '', 'language': 'english', 'isRandom': True}
+2025-04-06 12:35:30,552 - ERROR - Error generating recipe: 'title'
+2025-04-06 12:35:30,553 - INFO - 127.0.0.1 - - [06/Apr/2025 12:35:30] "[35m[1mPOST /generate_recipe HTTP/1.1[0m" 500 -
+2025-04-06 12:35:34,434 - INFO - Fetching favorites, current session: <SecureCookieSession {}>
+2025-04-06 12:35:34,435 - WARNING - User not logged in when fetching favorites
+2025-04-06 12:35:34,436 - INFO - 127.0.0.1 - - [06/Apr/2025 12:35:34] "[31m[1mGET /favorites HTTP/1.1[0m" 401 -
+2025-04-06 12:35:34,437 - INFO - Getting user info, current session: <SecureCookieSession {}>
+2025-04-06 12:35:34,438 - INFO - 127.0.0.1 - - [06/Apr/2025 12:35:34] "[31m[1mGET /user HTTP/1.1[0m" 401 -
+2025-04-06 12:35:35,953 - INFO - 127.0.0.1 - - [06/Apr/2025 12:35:35] "OPTIONS /login HTTP/1.1" 200 -
+2025-04-06 12:35:36,152 - INFO - User logged in: bshoemak, session: <SecureCookieSession {'user_id': 1, 'username': 'bshoemak', 'subscription_status': 'free'}>
+2025-04-06 12:35:36,153 - INFO - 127.0.0.1 - - [06/Apr/2025 12:35:36] "POST /login HTTP/1.1" 200 -
+2025-04-06 12:35:36,158 - INFO - Fetching favorites, current session: <SecureCookieSession {}>
+2025-04-06 12:35:36,158 - WARNING - User not logged in when fetching favorites
+2025-04-06 12:35:36,159 - INFO - 127.0.0.1 - - [06/Apr/2025 12:35:36] "[31m[1mGET /favorites HTTP/1.1[0m" 401 -
+2025-04-06 12:35:37,300 - INFO - User logged in: bshoemak, session: <SecureCookieSession {'user_id': 1, 'username': 'bshoemak', 'subscription_status': 'free'}>
+2025-04-06 12:35:37,300 - INFO - 127.0.0.1 - - [06/Apr/2025 12:35:37] "POST /login HTTP/1.1" 200 -
+2025-04-06 12:35:37,308 - INFO - Fetching favorites, current session: <SecureCookieSession {}>
+2025-04-06 12:35:37,308 - WARNING - User not logged in when fetching favorites
+2025-04-06 12:35:37,308 - INFO - 127.0.0.1 - - [06/Apr/2025 12:35:37] "[31m[1mGET /favorites HTTP/1.1[0m" 401 -
+2025-04-06 12:35:40,488 - INFO - 127.0.0.1 - - [06/Apr/2025 12:35:40] "OPTIONS /generate_recipe HTTP/1.1" 200 -
+2025-04-06 12:35:40,491 - INFO - Generate recipe request: ingredients=[], preferences={'diet': '', 'time': '', 'style': '', 'category': '', 'language': 'english', 'isRandom': True}
+2025-04-06 12:35:40,491 - ERROR - Error generating recipe: 'title'
+2025-04-06 12:35:40,492 - INFO - 127.0.0.1 - - [06/Apr/2025 12:35:40] "[35m[1mPOST /generate_recipe HTTP/1.1[0m" 500 -
+2025-04-06 12:39:05,017 - INFO - Recipes table is empty, populating with initial data
+2025-04-06 12:39:05,562 - INFO - Inserted 15 recipes into the database
+2025-04-06 12:39:06,158 - INFO - Database initialized successfully
+2025-04-06 12:39:06,196 - INFO -  * Restarting with stat
+2025-04-06 12:39:06,806 - INFO - Recipes table already has 15 entries
+2025-04-06 12:39:06,806 - INFO - Database initialized successfully
+2025-04-06 12:39:06,822 - WARNING -  * Debugger is active!
+2025-04-06 12:39:06,825 - INFO -  * Debugger PIN: 104-084-848
+2025-04-06 12:39:07,789 - INFO -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2025-04-06 12:40:12,883 - INFO - Getting user info, current session: <SecureCookieSession {}>
+2025-04-06 12:40:12,884 - INFO - Fetching favorites, current session: <SecureCookieSession {}>
+2025-04-06 12:40:12,899 - WARNING - User not logged in when fetching favorites
+2025-04-06 12:40:12,900 - INFO - 127.0.0.1 - - [06/Apr/2025 12:40:12] "[31m[1mGET /favorites HTTP/1.1[0m" 401 -
+2025-04-06 12:40:12,898 - INFO - 127.0.0.1 - - [06/Apr/2025 12:40:12] "[31m[1mGET /user HTTP/1.1[0m" 401 -
+2025-04-06 12:43:37,724 - INFO -  * Detected change in 'C:\\Users\\bshoe\\OneDrive\\Desktop\\game_theory\\cooking\\RecipeGenerator\\app.py', reloading
+2025-04-06 12:43:37,771 - INFO -  * Restarting with stat
+2025-04-06 12:43:38,380 - INFO - Recipes table already has 15 entries
+2025-04-06 12:43:38,381 - INFO - Database initialized successfully
+2025-04-06 12:43:38,400 - WARNING -  * Debugger is active!
+2025-04-06 12:43:38,403 - INFO -  * Debugger PIN: 104-084-848
+2025-04-06 12:43:39,276 - INFO -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2025-04-06 12:45:06,058 - INFO - Fetching favorites, current session: <SecureCookieSession {}>
+2025-04-06 12:45:06,059 - INFO - 127.0.0.1 - - [06/Apr/2025 12:45:06] "[33mGET /generate_recipe/user HTTP/1.1[0m" 404 -
+2025-04-06 12:45:06,059 - WARNING - User not logged in when fetching favorites
+2025-04-06 12:45:06,060 - INFO - 127.0.0.1 - - [06/Apr/2025 12:45:06] "[31m[1mGET /favorites HTTP/1.1[0m" 401 -
+2025-04-06 12:45:28,495 - INFO - Fetching favorites, current session: <SecureCookieSession {}>
+2025-04-06 12:45:28,496 - INFO - 127.0.0.1 - - [06/Apr/2025 12:45:28] "[33mGET /generate_recipe/user HTTP/1.1[0m" 404 -
+2025-04-06 12:45:28,496 - WARNING - User not logged in when fetching favorites
+2025-04-06 12:45:28,497 - INFO - 127.0.0.1 - - [06/Apr/2025 12:45:28] "[31m[1mGET /favorites HTTP/1.1[0m" 401 -
+2025-04-06 12:46:01,854 - INFO - 127.0.0.1 - - [06/Apr/2025 12:46:01] "[33mGET /generate_recipe/favorites HTTP/1.1[0m" 404 -
+2025-04-06 12:46:01,860 - INFO - 127.0.0.1 - - [06/Apr/2025 12:46:01] "[33mGET /generate_recipe/user HTTP/1.1[0m" 404 -
+2025-04-06 12:46:44,277 - INFO - Recipes table is empty, populating with initial data
+2025-04-06 12:46:44,701 - INFO - Inserted 15 recipes into the database
+2025-04-06 12:46:44,813 - INFO - Database initialized successfully
+2025-04-06 12:46:44,839 - INFO -  * Restarting with stat
+2025-04-06 12:46:45,457 - INFO - Recipes table already has 15 entries
+2025-04-06 12:46:45,458 - INFO - Database initialized successfully
+2025-04-06 12:46:45,478 - WARNING -  * Debugger is active!
+2025-04-06 12:46:45,482 - INFO -  * Debugger PIN: 104-084-848
+2025-04-06 12:46:46,401 - INFO -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2025-04-06 12:47:27,780 - INFO - 127.0.0.1 - - [06/Apr/2025 12:47:27] "[33mGET /generate_recipe/favorites HTTP/1.1[0m" 404 -
+2025-04-06 12:47:27,784 - INFO - 127.0.0.1 - - [06/Apr/2025 12:47:27] "[33mGET /generate_recipe/user HTTP/1.1[0m" 404 -
+2025-04-06 12:49:13,712 - INFO - 127.0.0.1 - - [06/Apr/2025 12:49:13] "[33mGET /generate_recipe/favorites HTTP/1.1[0m" 404 -
+2025-04-06 12:49:13,716 - INFO - 127.0.0.1 - - [06/Apr/2025 12:49:13] "[33mGET /generate_recipe/user HTTP/1.1[0m" 404 -
+2025-04-06 12:49:14,809 - INFO - 127.0.0.1 - - [06/Apr/2025 12:49:14] "OPTIONS /login HTTP/1.1" 200 -
+2025-04-06 12:49:16,960 - INFO - 127.0.0.1 - - [06/Apr/2025 12:49:16] "OPTIONS /login HTTP/1.1" 200 -
+2025-04-06 12:49:17,721 - INFO - 127.0.0.1 - - [06/Apr/2025 12:49:17] "OPTIONS /login HTTP/1.1" 200 -
+2025-04-06 12:49:21,282 - INFO - 127.0.0.1 - - [06/Apr/2025 12:49:21] "OPTIONS /generate_recipe HTTP/1.1" 200 -
+2025-04-06 12:49:38,460 - INFO - 127.0.0.1 - - [06/Apr/2025 12:49:38] "[33mGET /generate_recipe/favorites HTTP/1.1[0m" 404 -
+2025-04-06 12:49:38,471 - INFO - 127.0.0.1 - - [06/Apr/2025 12:49:38] "[33mGET /generate_recipe/user HTTP/1.1[0m" 404 -
+2025-04-06 12:49:39,614 - INFO - 127.0.0.1 - - [06/Apr/2025 12:49:39] "OPTIONS /login HTTP/1.1" 200 -
+2025-04-06 12:49:54,578 - INFO - 127.0.0.1 - - [06/Apr/2025 12:49:54] "OPTIONS /generate_recipe HTTP/1.1" 200 -
+2025-04-06 12:51:56,393 - INFO - 127.0.0.1 - - [06/Apr/2025 12:51:56] "OPTIONS /generate_recipe HTTP/1.1" 200 -
+2025-04-06 12:52:06,217 - INFO - 127.0.0.1 - - [06/Apr/2025 12:52:06] "OPTIONS /generate_recipe HTTP/1.1" 200 -
+2025-04-06 12:55:21,440 - INFO - 127.0.0.1 - - [06/Apr/2025 12:55:21] "[33mGET /generate_recipe/favorites HTTP/1.1[0m" 404 -
+2025-04-06 12:55:21,448 - INFO - 127.0.0.1 - - [06/Apr/2025 12:55:21] "[33mGET /generate_recipe/user HTTP/1.1[0m" 404 -
+2025-04-06 12:55:22,433 - INFO - 127.0.0.1 - - [06/Apr/2025 12:55:22] "OPTIONS /login HTTP/1.1" 200 -
+2025-04-06 12:55:23,961 - INFO - 127.0.0.1 - - [06/Apr/2025 12:55:23] "OPTIONS /login HTTP/1.1" 200 -
+2025-04-06 12:55:27,066 - INFO - 127.0.0.1 - - [06/Apr/2025 12:55:27] "OPTIONS /generate_recipe HTTP/1.1" 200 -
+2025-04-06 12:55:53,711 - INFO - Recipes table is empty, populating with initial data
+2025-04-06 12:55:53,887 - INFO - Inserted 15 recipes into the database
+2025-04-06 12:55:54,012 - INFO - Database initialized successfully
+2025-04-06 12:55:54,039 - INFO -  * Restarting with stat
+2025-04-06 12:55:54,663 - INFO - Recipes table already has 15 entries
+2025-04-06 12:55:54,664 - INFO - Database initialized successfully
+2025-04-06 12:55:54,681 - WARNING -  * Debugger is active!
+2025-04-06 12:55:54,684 - INFO -  * Debugger PIN: 104-084-848
+2025-04-06 12:55:55,579 - INFO -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2025-04-06 12:56:37,751 - INFO - 127.0.0.1 - - [06/Apr/2025 12:56:37] "[33mGET /generate_recipe/favorites HTTP/1.1[0m" 404 -
+2025-04-06 12:56:37,759 - INFO - 127.0.0.1 - - [06/Apr/2025 12:56:37] "[33mGET /generate_recipe/user HTTP/1.1[0m" 404 -
+2025-04-06 12:56:40,474 - INFO - 127.0.0.1 - - [06/Apr/2025 12:56:40] "OPTIONS /generate_recipe HTTP/1.1" 200 -
+2025-04-06 12:56:50,593 - INFO - 127.0.0.1 - - [06/Apr/2025 12:56:50] "OPTIONS /login HTTP/1.1" 200 -
+2025-04-06 13:00:43,514 - INFO - 127.0.0.1 - - [06/Apr/2025 13:00:43] "[33mGET /generate_recipe/favorites HTTP/1.1[0m" 404 -
+2025-04-06 13:00:43,515 - INFO - 127.0.0.1 - - [06/Apr/2025 13:00:43] "[33mGET /generate_recipe/user HTTP/1.1[0m" 404 -
+2025-04-06 13:03:41,606 - INFO - 127.0.0.1 - - [06/Apr/2025 13:03:41] "[33mGET /generate_recipe/favorites HTTP/1.1[0m" 404 -
+2025-04-06 13:03:41,608 - INFO - 127.0.0.1 - - [06/Apr/2025 13:03:41] "[33mGET /generate_recipe/user HTTP/1.1[0m" 404 -
+2025-04-06 13:03:58,264 - INFO - 127.0.0.1 - - [06/Apr/2025 13:03:58] "[33mGET /generate_recipe/favorites HTTP/1.1[0m" 404 -
+2025-04-06 13:03:58,266 - INFO - 127.0.0.1 - - [06/Apr/2025 13:03:58] "[33mGET /generate_recipe/user HTTP/1.1[0m" 404 -
+2025-04-06 13:03:58,978 - INFO - 127.0.0.1 - - [06/Apr/2025 13:03:58] "OPTIONS /login HTTP/1.1" 200 -
+2025-04-06 13:04:00,488 - INFO - 127.0.0.1 - - [06/Apr/2025 13:04:00] "OPTIONS /login HTTP/1.1" 200 -
+2025-04-06 13:04:03,673 - INFO - 127.0.0.1 - - [06/Apr/2025 13:04:03] "OPTIONS /generate_recipe HTTP/1.1" 200 -
+2025-04-06 13:08:55,361 - INFO - Recipes table is empty, populating with initial data
+2025-04-06 13:08:55,525 - INFO - Inserted 15 recipes into the database
+2025-04-06 13:08:55,578 - INFO - Database initialized successfully
+2025-04-06 13:08:55,608 - INFO -  * Restarting with stat
+2025-04-06 13:08:56,205 - INFO - Recipes table already has 15 entries
+2025-04-06 13:08:56,206 - INFO - Database initialized successfully
+2025-04-06 13:08:56,225 - WARNING -  * Debugger is active!
+2025-04-06 13:08:56,229 - INFO -  * Debugger PIN: 104-084-848
+2025-04-06 13:08:57,211 - INFO -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2025-04-06 13:09:41,466 - INFO - 127.0.0.1 - - [06/Apr/2025 13:09:41] "[33mGET /generate_recipe/favorites HTTP/1.1[0m" 404 -
+2025-04-06 13:09:41,482 - INFO - 127.0.0.1 - - [06/Apr/2025 13:09:41] "[33mGET /generate_recipe/user HTTP/1.1[0m" 404 -
+2025-04-06 13:09:44,137 - INFO - 127.0.0.1 - - [06/Apr/2025 13:09:44] "OPTIONS /login HTTP/1.1" 200 -
+2025-04-06 13:09:45,024 - INFO - 127.0.0.1 - - [06/Apr/2025 13:09:45] "OPTIONS /login HTTP/1.1" 200 -
+2025-04-06 13:09:45,848 - INFO - 127.0.0.1 - - [06/Apr/2025 13:09:45] "OPTIONS /login HTTP/1.1" 200 -
+2025-04-06 13:09:47,088 - INFO - 127.0.0.1 - - [06/Apr/2025 13:09:47] "OPTIONS /login HTTP/1.1" 200 -
+2025-04-06 13:10:20,249 - INFO - 127.0.0.1 - - [06/Apr/2025 13:10:20] "OPTIONS /generate_recipe HTTP/1.1" 200 -
+2025-04-06 13:10:50,888 - INFO - 127.0.0.1 - - [06/Apr/2025 13:10:50] "[33mGET /generate_recipe/favorites HTTP/1.1[0m" 404 -
+2025-04-06 13:10:50,892 - INFO - 127.0.0.1 - - [06/Apr/2025 13:10:50] "[33mGET /generate_recipe/user HTTP/1.1[0m" 404 -
+2025-04-06 13:10:53,816 - INFO - 127.0.0.1 - - [06/Apr/2025 13:10:53] "OPTIONS /login HTTP/1.1" 200 -
+2025-04-06 13:17:09,827 - INFO - Recipes table is empty, populating with initial data
+2025-04-06 13:17:09,927 - INFO - Inserted 15 recipes into the database
+2025-04-06 13:17:09,994 - INFO - Database initialized successfully
+2025-04-06 13:17:10,022 - INFO -  * Restarting with stat
+2025-04-06 13:17:10,672 - INFO - Recipes table already has 15 entries
+2025-04-06 13:17:10,672 - INFO - Database initialized successfully
+2025-04-06 13:17:10,691 - WARNING -  * Debugger is active!
+2025-04-06 13:17:10,694 - INFO -  * Debugger PIN: 104-084-848
+2025-04-06 13:17:11,661 - INFO -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2025-04-06 13:17:55,798 - INFO - Fetching favorites, current session: <SecureCookieSession {}>
+2025-04-06 13:17:55,798 - WARNING - User not logged in when fetching favorites
+2025-04-06 13:17:55,800 - INFO - 127.0.0.1 - - [06/Apr/2025 13:17:55] "[31m[1mGET /favorites HTTP/1.1[0m" 401 -
+2025-04-06 13:17:55,801 - INFO - Getting user info, current session: <SecureCookieSession {}>
+2025-04-06 13:17:55,802 - INFO - 127.0.0.1 - - [06/Apr/2025 13:17:55] "[31m[1mGET /user HTTP/1.1[0m" 401 -
+2025-04-06 13:18:01,264 - INFO - 127.0.0.1 - - [06/Apr/2025 13:18:01] "OPTIONS /generate_recipe HTTP/1.1" 200 -
+2025-04-06 13:18:03,578 - INFO - 127.0.0.1 - - [06/Apr/2025 13:18:03] "OPTIONS /generate_recipe HTTP/1.1" 200 -
+2025-04-06 13:18:07,449 - INFO - 127.0.0.1 - - [06/Apr/2025 13:18:07] "OPTIONS /login HTTP/1.1" 200 -
+2025-04-06 13:18:10,448 - INFO - 127.0.0.1 - - [06/Apr/2025 13:18:10] "OPTIONS /login HTTP/1.1" 200 -
+2025-04-06 13:18:11,105 - INFO - 127.0.0.1 - - [06/Apr/2025 13:18:11] "OPTIONS /login HTTP/1.1" 200 -
+2025-04-06 13:18:16,929 - INFO - 127.0.0.1 - - [06/Apr/2025 13:18:16] "OPTIONS /login HTTP/1.1" 200 -
+2025-04-06 13:18:22,504 - INFO - 127.0.0.1 - - [06/Apr/2025 13:18:22] "OPTIONS /generate_recipe HTTP/1.1" 200 -
+2025-04-06 13:21:26,611 - INFO - Fetching favorites, current session: <SecureCookieSession {}>
+2025-04-06 13:21:26,612 - WARNING - User not logged in when fetching favorites
+2025-04-06 13:21:26,613 - INFO - 127.0.0.1 - - [06/Apr/2025 13:21:26] "[31m[1mGET /favorites HTTP/1.1[0m" 401 -
+2025-04-06 13:21:26,621 - INFO - Getting user info, current session: <SecureCookieSession {}>
+2025-04-06 13:21:26,622 - INFO - 127.0.0.1 - - [06/Apr/2025 13:21:26] "[31m[1mGET /user HTTP/1.1[0m" 401 -
+2025-04-06 13:21:27,809 - INFO - 127.0.0.1 - - [06/Apr/2025 13:21:27] "OPTIONS /login HTTP/1.1" 200 -
+2025-04-06 13:21:28,842 - INFO - 127.0.0.1 - - [06/Apr/2025 13:21:28] "OPTIONS /login HTTP/1.1" 200 -
+2025-04-06 13:24:05,075 - INFO - Recipes table is empty, populating with initial data
+2025-04-06 13:24:05,142 - INFO - Inserted 15 recipes into the database
+2025-04-06 13:24:05,259 - INFO - Database initialized successfully
+2025-04-06 13:24:05,285 - INFO -  * Restarting with stat
+2025-04-06 13:24:05,981 - INFO - Recipes table already has 15 entries
+2025-04-06 13:24:05,982 - INFO - Database initialized successfully
+2025-04-06 13:24:06,002 - WARNING -  * Debugger is active!
+2025-04-06 13:24:06,005 - INFO -  * Debugger PIN: 104-084-848
+2025-04-06 13:24:06,958 - INFO -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2025-04-06 13:24:50,020 - INFO - Fetching favorites, current session: <SecureCookieSession {}>
+2025-04-06 13:24:50,021 - WARNING - User not logged in when fetching favorites
+2025-04-06 13:24:50,023 - INFO - 127.0.0.1 - - [06/Apr/2025 13:24:50] "[31m[1mGET /favorites HTTP/1.1[0m" 401 -
+2025-04-06 13:24:50,041 - INFO - Getting user info, current session: <SecureCookieSession {}>
+2025-04-06 13:24:50,042 - INFO - 127.0.0.1 - - [06/Apr/2025 13:24:50] "[31m[1mGET /user HTTP/1.1[0m" 401 -
+2025-04-06 13:24:51,913 - INFO - 127.0.0.1 - - [06/Apr/2025 13:24:51] "OPTIONS /login HTTP/1.1" 200 -
+2025-04-06 13:24:53,642 - INFO - 127.0.0.1 - - [06/Apr/2025 13:24:53] "OPTIONS /login HTTP/1.1" 200 -
+2025-04-06 13:24:54,232 - INFO - 127.0.0.1 - - [06/Apr/2025 13:24:54] "OPTIONS /login HTTP/1.1" 200 -
+2025-04-06 13:25:08,929 - INFO - 127.0.0.1 - - [06/Apr/2025 13:25:08] "OPTIONS /register HTTP/1.1" 200 -
+2025-04-06 13:25:10,154 - INFO - 127.0.0.1 - - [06/Apr/2025 13:25:10] "OPTIONS /register HTTP/1.1" 200 -
+2025-04-06 13:25:11,841 - INFO - 127.0.0.1 - - [06/Apr/2025 13:25:11] "OPTIONS /login HTTP/1.1" 200 -
+2025-04-06 13:25:12,673 - INFO - 127.0.0.1 - - [06/Apr/2025 13:25:12] "OPTIONS /login HTTP/1.1" 200 -
+2025-04-06 13:30:40,202 - INFO - Recipes table is empty, populating with initial data
+2025-04-06 13:30:40,262 - INFO - Inserted 15 recipes into the database
+2025-04-06 13:30:40,329 - INFO - Database initialized successfully
+2025-04-06 13:30:40,357 - INFO -  * Restarting with stat
+2025-04-06 13:30:41,001 - INFO - Recipes table already has 15 entries
+2025-04-06 13:30:41,001 - INFO - Database initialized successfully
+2025-04-06 13:30:41,018 - WARNING -  * Debugger is active!
+2025-04-06 13:30:41,021 - INFO -  * Debugger PIN: 104-084-848
+2025-04-06 13:30:41,926 - INFO -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2025-04-06 13:31:26,975 - INFO - Fetching favorites, current session: <SecureCookieSession {}>
+2025-04-06 13:31:26,976 - WARNING - User not logged in when fetching favorites
+2025-04-06 13:31:26,977 - INFO - 127.0.0.1 - - [06/Apr/2025 13:31:26] "[31m[1mGET /favorites HTTP/1.1[0m" 401 -
+2025-04-06 13:31:26,981 - INFO - Getting user info, current session: <SecureCookieSession {}>
+2025-04-06 13:31:26,982 - INFO - 127.0.0.1 - - [06/Apr/2025 13:31:26] "[31m[1mGET /user HTTP/1.1[0m" 401 -
+2025-04-06 13:31:29,281 - INFO - 127.0.0.1 - - [06/Apr/2025 13:31:29] "OPTIONS /login HTTP/1.1" 200 -
+2025-04-06 13:31:30,576 - INFO - 127.0.0.1 - - [06/Apr/2025 13:31:30] "OPTIONS /login HTTP/1.1" 200 -
+2025-04-06 13:31:58,880 - INFO - 127.0.0.1 - - [06/Apr/2025 13:31:58] "OPTIONS /login HTTP/1.1" 200 -
+2025-04-06 13:31:59,448 - INFO - 127.0.0.1 - - [06/Apr/2025 13:31:59] "OPTIONS /login HTTP/1.1" 200 -
+2025-04-06 13:32:02,584 - INFO - 127.0.0.1 - - [06/Apr/2025 13:32:02] "OPTIONS /generate_recipe HTTP/1.1" 200 -
+2025-04-06 13:37:15,983 - INFO - Recipes table is empty, populating with initial data
+2025-04-06 13:37:16,117 - INFO - Inserted 15 recipes into the database
+2025-04-06 13:37:16,220 - INFO - Database initialized successfully
+2025-04-06 13:37:16,249 - INFO -  * Restarting with stat
+2025-04-06 13:37:16,868 - INFO - Recipes table already has 15 entries
+2025-04-06 13:37:16,869 - INFO - Database initialized successfully
+2025-04-06 13:37:16,890 - WARNING -  * Debugger is active!
+2025-04-06 13:37:16,893 - INFO -  * Debugger PIN: 104-084-848
+2025-04-06 13:37:17,767 - INFO -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2025-04-06 13:38:01,369 - INFO - 127.0.0.1 - - [06/Apr/2025 13:38:01] "OPTIONS /generate_recipe HTTP/1.1" 200 -
+2025-04-06 13:38:07,408 - INFO - 127.0.0.1 - - [06/Apr/2025 13:38:07] "OPTIONS /generate_recipe HTTP/1.1" 200 -
+2025-04-06 13:38:44,561 - INFO - 127.0.0.1 - - [06/Apr/2025 13:38:44] "OPTIONS /generate_recipe HTTP/1.1" 200 -
+2025-04-06 13:38:47,784 - INFO - 127.0.0.1 - - [06/Apr/2025 13:38:47] "OPTIONS /generate_recipe HTTP/1.1" 200 -
+2025-04-06 13:38:48,216 - INFO - 127.0.0.1 - - [06/Apr/2025 13:38:48] "OPTIONS /generate_recipe HTTP/1.1" 200 -
+2025-04-06 13:39:40,776 - INFO - 127.0.0.1 - - [06/Apr/2025 13:39:40] "OPTIONS /generate_recipe HTTP/1.1" 200 -
+2025-04-06 13:56:44,467 - INFO - 127.0.0.1 - - [06/Apr/2025 13:56:44] "OPTIONS /generate_recipe HTTP/1.1" 200 -
+2025-04-06 13:56:46,256 - INFO - 127.0.0.1 - - [06/Apr/2025 13:56:46] "OPTIONS /generate_recipe HTTP/1.1" 200 -
+2025-04-06 13:56:50,400 - INFO - 127.0.0.1 - - [06/Apr/2025 13:56:50] "OPTIONS /generate_recipe HTTP/1.1" 200 -
+2025-04-06 13:59:57,696 - INFO - 127.0.0.1 - - [06/Apr/2025 13:59:57] "OPTIONS /generate_recipe HTTP/1.1" 200 -
+2025-04-06 13:59:58,208 - INFO - 127.0.0.1 - - [06/Apr/2025 13:59:58] "OPTIONS /generate_recipe HTTP/1.1" 200 -
+2025-04-06 13:59:58,655 - INFO - 127.0.0.1 - - [06/Apr/2025 13:59:58] "OPTIONS /generate_recipe HTTP/1.1" 200 -
+2025-04-06 14:00:09,231 - INFO - 127.0.0.1 - - [06/Apr/2025 14:00:09] "OPTIONS /generate_recipe HTTP/1.1" 200 -
+2025-04-06 14:05:52,532 - INFO -  * Detected change in 'C:\\Users\\bshoe\\OneDrive\\Desktop\\game_theory\\cooking\\RecipeGenerator\\app.py', reloading
+2025-04-06 14:05:52,594 - INFO -  * Restarting with stat
+2025-04-06 14:05:54,324 - INFO - Recipes table already has 15 entries
+2025-04-06 14:05:54,326 - INFO - Database initialized successfully
+2025-04-06 14:05:54,368 - WARNING -  * Debugger is active!
+2025-04-06 14:05:54,371 - INFO -  * Debugger PIN: 104-084-848
+2025-04-06 14:05:55,185 - INFO -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2025-04-06 14:07:32,871 - INFO - Recipes table is empty, populating with initial data
+2025-04-06 14:07:33,563 - INFO - Inserted 15 recipes into the database
+2025-04-06 14:07:34,709 - INFO - Database initialized successfully
+2025-04-06 14:07:34,736 - INFO -  * Restarting with stat
+2025-04-06 14:07:35,751 - INFO - Recipes table already has 15 entries
+2025-04-06 14:07:35,751 - INFO - Database initialized successfully
+2025-04-06 14:07:35,766 - WARNING -  * Debugger is active!
+2025-04-06 14:07:35,771 - INFO -  * Debugger PIN: 104-084-848
+2025-04-06 14:07:36,795 - INFO -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2025-04-06 14:08:41,522 - INFO - 127.0.0.1 - - [06/Apr/2025 14:08:41] "OPTIONS /generate_recipe HTTP/1.1" 200 -
+2025-04-06 14:08:41,526 - DEBUG - Generate recipe request: ingredients=[], preferences={'diet': '', 'time': '', 'style': '', 'category': '', 'language': 'english', 'isRandom': True}
+2025-04-06 14:08:41,528 - ERROR - Error generating recipe: 'title'
+2025-04-06 14:08:41,529 - INFO - 127.0.0.1 - - [06/Apr/2025 14:08:41] "[35m[1mPOST /generate_recipe HTTP/1.1[0m" 500 -
+2025-04-06 14:08:46,416 - DEBUG - Generate recipe request: ingredients=[], preferences={'diet': '', 'time': '', 'style': '', 'category': '', 'language': 'english', 'isRandom': True}
+2025-04-06 14:08:46,417 - ERROR - Error generating recipe: 'title'
+2025-04-06 14:08:46,418 - INFO - 127.0.0.1 - - [06/Apr/2025 14:08:46] "[35m[1mPOST /generate_recipe HTTP/1.1[0m" 500 -
+2025-04-06 14:08:48,104 - INFO - 127.0.0.1 - - [06/Apr/2025 14:08:48] "OPTIONS /generate_recipe HTTP/1.1" 200 -
+2025-04-06 14:08:48,108 - DEBUG - Generate recipe request: ingredients=[], preferences={'diet': '', 'time': '', 'style': '', 'category': '', 'language': 'english', 'isRandom': True}
+2025-04-06 14:08:48,109 - ERROR - Error generating recipe: 'title'
+2025-04-06 14:08:48,110 - INFO - 127.0.0.1 - - [06/Apr/2025 14:08:48] "[35m[1mPOST /generate_recipe HTTP/1.1[0m" 500 -
+2025-04-06 14:08:57,231 - INFO - 127.0.0.1 - - [06/Apr/2025 14:08:57] "OPTIONS /generate_recipe HTTP/1.1" 200 -
+2025-04-06 14:08:57,234 - DEBUG - Generate recipe request: ingredients=['chicken', 'rice'], preferences={'diet': '', 'time': '', 'style': '', 'category': '', 'language': 'english', 'isRandom': False}
+2025-04-06 14:08:57,235 - INFO - Generated dynamic recipe: Chicken Avocado Chili Delight
+2025-04-06 14:08:57,236 - INFO - 127.0.0.1 - - [06/Apr/2025 14:08:57] "POST /generate_recipe HTTP/1.1" 200 -
+2025-04-06 14:13:23,432 - INFO -  * Detected change in 'C:\\Users\\bshoe\\OneDrive\\Desktop\\game_theory\\cooking\\RecipeGenerator\\recipe_generator.py', reloading
+2025-04-06 14:13:23,495 - INFO -  * Restarting with stat
+2025-04-06 14:13:24,079 - INFO - Recipes table already has 15 entries
+2025-04-06 14:13:24,080 - INFO - Database initialized successfully
+2025-04-06 14:13:24,092 - WARNING -  * Debugger is active!
+2025-04-06 14:13:24,096 - INFO -  * Debugger PIN: 104-084-848
+2025-04-06 14:13:24,937 - INFO -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2025-04-06 14:13:59,664 - INFO - 127.0.0.1 - - [06/Apr/2025 14:13:59] "OPTIONS /generate_recipe HTTP/1.1" 200 -
+2025-04-06 14:13:59,668 - DEBUG - Generate recipe request: ingredients=[], preferences={'diet': '', 'time': '', 'style': '', 'category': '', 'language': 'english', 'isRandom': True}
+2025-04-06 14:13:59,670 - ERROR - Error generating recipe: 'title'
+2025-04-06 14:13:59,670 - INFO - 127.0.0.1 - - [06/Apr/2025 14:13:59] "[35m[1mPOST /generate_recipe HTTP/1.1[0m" 500 -
+2025-04-06 14:14:02,352 - DEBUG - Generate recipe request: ingredients=[], preferences={'diet': '', 'time': '', 'style': '', 'category': '', 'language': 'english', 'isRandom': True}
+2025-04-06 14:14:02,354 - ERROR - Error generating recipe: 'title'
+2025-04-06 14:14:02,355 - INFO - 127.0.0.1 - - [06/Apr/2025 14:14:02] "[35m[1mPOST /generate_recipe HTTP/1.1[0m" 500 -
+2025-04-06 14:14:21,797 - INFO - 127.0.0.1 - - [06/Apr/2025 14:14:21] "OPTIONS /generate_recipe HTTP/1.1" 200 -
+2025-04-06 14:14:21,802 - DEBUG - Generate recipe request: ingredients=[], preferences={'diet': '', 'time': '', 'style': '', 'category': '', 'language': 'english', 'isRandom': True}
+2025-04-06 14:14:21,805 - ERROR - Error generating recipe: 'title'
+2025-04-06 14:14:21,805 - INFO - 127.0.0.1 - - [06/Apr/2025 14:14:21] "[35m[1mPOST /generate_recipe HTTP/1.1[0m" 500 -
+2025-04-06 14:15:00,388 - INFO - Recipes table is empty, populating with initial data
+2025-04-06 14:15:00,518 - INFO - Inserted 15 recipes into the database
+2025-04-06 14:15:00,613 - INFO - Database initialized successfully
+2025-04-06 14:15:00,636 - INFO -  * Restarting with stat
+2025-04-06 14:15:01,240 - INFO - Recipes table already has 15 entries
+2025-04-06 14:15:01,241 - INFO - Database initialized successfully
+2025-04-06 14:15:01,254 - WARNING -  * Debugger is active!
+2025-04-06 14:15:01,258 - INFO -  * Debugger PIN: 104-084-848
+2025-04-06 14:15:02,240 - INFO -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2025-04-06 14:15:51,464 - INFO - 127.0.0.1 - - [06/Apr/2025 14:15:51] "OPTIONS /generate_recipe HTTP/1.1" 200 -
+2025-04-06 14:15:51,467 - DEBUG - Generate recipe request: ingredients=[], preferences={'diet': '', 'time': '', 'style': '', 'category': '', 'language': 'english', 'isRandom': True}
+2025-04-06 14:15:51,469 - ERROR - Error generating recipe: 'title'
+2025-04-06 14:15:51,469 - INFO - 127.0.0.1 - - [06/Apr/2025 14:15:51] "[35m[1mPOST /generate_recipe HTTP/1.1[0m" 500 -
+2025-04-06 14:15:59,695 - INFO - 127.0.0.1 - - [06/Apr/2025 14:15:59] "OPTIONS /generate_recipe HTTP/1.1" 200 -
+2025-04-06 14:15:59,698 - DEBUG - Generate recipe request: ingredients=['chicken', 'rice'], preferences={'diet': '', 'time': '', 'style': '', 'category': '', 'language': 'english', 'isRandom': False}
+2025-04-06 14:15:59,700 - INFO - Generated dynamic recipe: Chicken Lime Chili Delight
+2025-04-06 14:15:59,701 - INFO - 127.0.0.1 - - [06/Apr/2025 14:15:59] "POST /generate_recipe HTTP/1.1" 200 -
+2025-04-06 14:16:30,304 - INFO - 127.0.0.1 - - [06/Apr/2025 14:16:30] "OPTIONS /generate_recipe HTTP/1.1" 200 -
+2025-04-06 14:16:30,307 - DEBUG - Generate recipe request: ingredients=['chicken', 'rice'], preferences={'diet': '', 'time': '', 'style': '', 'category': '', 'language': 'english', 'isRandom': True}
+2025-04-06 14:16:30,308 - ERROR - Error generating recipe: 'title'
+2025-04-06 14:16:30,309 - INFO - 127.0.0.1 - - [06/Apr/2025 14:16:30] "[35m[1mPOST /generate_recipe HTTP/1.1[0m" 500 -
+2025-04-06 14:18:00,783 - INFO - 127.0.0.1 - - [06/Apr/2025 14:18:00] "OPTIONS /generate_recipe HTTP/1.1" 200 -
+2025-04-06 14:18:00,788 - DEBUG - Generate recipe request: ingredients=[], preferences={'diet': '', 'time': '', 'style': '', 'category': '', 'language': 'english', 'isRandom': True}
+2025-04-06 14:18:00,790 - ERROR - Error generating recipe: 'title'
+2025-04-06 14:18:00,790 - INFO - 127.0.0.1 - - [06/Apr/2025 14:18:00] "[35m[1mPOST /generate_recipe HTTP/1.1[0m" 500 -
+2025-04-06 14:19:38,778 - INFO -  * Detected change in 'C:\\Users\\bshoe\\OneDrive\\Desktop\\game_theory\\cooking\\RecipeGenerator\\recipe_generator.py', reloading
+2025-04-06 14:19:38,852 - INFO -  * Restarting with stat
