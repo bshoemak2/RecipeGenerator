@@ -29,8 +29,11 @@ export default function HomeScreen() {
   const fetchRecipe = async (isRandom = false) => {
     setIsLoading(true);
     setRecipe(null);
+    // Use environment-based URL directly, no .env dependency
+    const apiUrl = process.env.NODE_ENV === 'development' ? 'http://127.0.0.1:5000/generate_recipe' : 'https://recipegenerator-api.onrender.com/generate_recipe';
+    console.log('Using API_URL:', apiUrl); // Debug log
     try {
-      const response = await fetch('https://recipegenerator-api.onrender.com/generate_recipe', {
+      const response = await fetch(apiUrl, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
