@@ -44,6 +44,8 @@ type deploy_log.txt | findstr "Exported: dist" >nul && (
 )
 
 ECHO Adding files to Git...
+ECHO Clearing Git cache for dist to ensure it’s tracked...
+git rm -r --cached dist 2>nul || ECHO dist was not previously cached, continuing...
 ECHO Staging all tracked and untracked files...
 git add .
 IF %ERRORLEVEL% NEQ 0 (
@@ -53,7 +55,7 @@ IF %ERRORLEVEL% NEQ 0 (
     exit /b 1
 )
 ECHO Specifically adding key directories and files...
-git add dist app/(tabs)/*.ts app/(tabs)/*.tsx *.py requirements.txt package.json deploy.bat start-local.bat database.py helpers.py recipe_generator.py recipes.db app.json assets/favicon.png || (
+git add -f dist app/(tabs)/*.ts app/(tabs)/*.tsx *.py requirements.txt package.json deploy.bat start-local.bat database.py helpers.py recipe_generator.py recipes.db app.json assets/favicon.png || (
     ECHO Warning: Some files may not exist. Continuing...
 )
 
@@ -81,4 +83,6 @@ IF %ERRORLEVEL% NEQ 0 (
 )
 
 ECHO Deployment successful! Check Render for the updated web app.
-ECHO URL: https://recipegenerator-
+ECHO URL: https://recipegenerator-ort9.onrender.com/
+ECHO If not updating, verify Render deploy settings (branch: main, auto-deploy: on).
+pause
