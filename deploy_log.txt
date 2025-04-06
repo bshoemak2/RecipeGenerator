@@ -2,8 +2,8 @@ env: load .env
 env: export API_URL FLASK_ENV FLASK_DEBUG REDIS_URL SECRET_KEY
 Starting Metro Bundler
 Static rendering is enabled. Learn more: https://docs.expo.dev/router/reference/static-rendering/
-λ Bundled 1164ms node_modules\expo-router\node\render.js (818 modules)
-Web Bundled 1573ms node_modules\expo-router\entry.js (857 modules)
+λ Bundled 1230ms node_modules\expo-router\node\render.js (876 modules)
+Web Bundled 1629ms node_modules\expo-router\entry.js (857 modules)
 
 › web bundles (1):
 _expo/static/js/web/entry-19925d1813dbdffa1ffeda34a1ed0bc0.js (1.55 MB)
