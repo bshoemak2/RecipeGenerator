@@ -6,6 +6,8 @@ if exist .env (
         echo Setting %%a=%%b
     )
 )
-start cmd /k "python app.py & echo Waiting for Flask to start... & timeout /t 5 & echo Flask should be running now"
-ECHO Starting Expo frontend...
-npx expo start --web --clear
+start cmd /k "python app.py & echo Waiting for Flask to start... & timeout /t 5 & echo Flask should be running at http://127.0.0.1:5000"
+ECHO Building and serving Expo web app in production mode...
+npx expo export --platform web
+ECHO Serving production build...
+npx serve dist -p 19006

@@ -53,15 +53,15 @@ IF %ERRORLEVEL% NEQ 0 (
     exit /b 1
 )
 ECHO Specifically adding key directories and files...
-git add dist app/(tabs)/*.ts app/(tabs)/*.tsx *.py requirements.txt package.json deploy.bat start-local.bat database.py helpers.py recipe_generator.py recipes.db || (
+git add dist app/(tabs)/*.ts app/(tabs)/*.tsx *.py requirements.txt package.json deploy.bat start-local.bat database.py helpers.py recipe_generator.py recipes.db app.json assets/favicon.png || (
     ECHO Warning: Some files may not exist. Continuing...
 )
 
 ECHO Committing changes...
 git status
-git commit -m "Deploy Expo web app and Flask backend" || (
+git commit -m "Deploy production Expo web app" || (
     ECHO No changes to commit. Forcing an empty commit...
-    git commit -m "Deploy Expo web app (forced)" --allow-empty
+    git commit -m "Deploy production Expo web app (forced)" --allow-empty
 )
 IF %ERRORLEVEL% NEQ 0 (
     ECHO Git commit failed. Check Git status:
@@ -81,6 +81,4 @@ IF %ERRORLEVEL% NEQ 0 (
 )
 
 ECHO Deployment successful! Check Render for the updated web app.
-ECHO URL: https://recipegenerator-ort9.onrender.com/
-ECHO If not updating, verify Render deploy settings (branch: main, auto-deploy: on).
-pause
+ECHO URL: https://recipegenerator-
