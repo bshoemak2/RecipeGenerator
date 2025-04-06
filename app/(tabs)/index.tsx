@@ -30,7 +30,7 @@ export default function HomeScreen() {
     setIsLoading(true);
     setRecipe(null);
     try {
-      const response = await fetch('http://localhost:5000/generate_recipe', {
+      const response = await fetch('https://recipegenerator-api.onrender.com/generate_recipe', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
