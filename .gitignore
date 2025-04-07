@@ -7,6 +7,7 @@ node_modules/
 .expo/
 web-build/
 expo-env.d.ts
+dist/  # Add this to ignore build output
 
 # Native
 *.orig.*
@@ -35,4 +36,4 @@ yarn-error.*
 # typescript
 *.tsbuildinfo
 
-app-example
+app-exampledist/ 
