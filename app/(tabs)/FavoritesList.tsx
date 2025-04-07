@@ -1,6 +1,6 @@
 // app/(tabs)/FavoritesList.tsx
 import React from 'react';
-import { View, Text, TextInput, Button, StyleSheet } from 'react-native';
+import { View, Text, TextInput, Button, StyleSheet } from 'react-native'; // Ensure View is imported
 
 interface FavoritesListProps {
   favorites: any[];

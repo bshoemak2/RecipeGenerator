@@ -1,13 +1,13 @@
 // app/(tabs)/index.tsx
 import React, { useState, useEffect } from 'react';
-import { ScrollView, StyleSheet, ActivityIndicator, Platform } from 'react-native';
+import { ScrollView, View, StyleSheet, ActivityIndicator, Platform } from 'react-native'; // Add View here
 import Animated, { Easing, FadeIn, FadeInUp } from 'react-native-reanimated';
 import Constants from 'expo-constants';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { InputSection } from './InputSection';
 import { RecipeCard } from './RecipeCard';
 import { AffiliateSection } from './AffiliateSection';
-import { FavoritesList } from './FavoritesList'; // Assuming updated version
+import { FavoritesList } from './FavoritesList';
 
 const AnimatedView = Platform.OS === 'web' ? View : Animated.View;
 

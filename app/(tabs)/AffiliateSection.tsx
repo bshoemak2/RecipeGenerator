@@ -1,12 +1,14 @@
 // C:\Users\bshoe\OneDrive\Desktop\game_theory\cooking\RecipeGenerator\app\(tabs)\AffiliateSection.tsx
+// app/(tabs)/InputSection.tsx
 import React from 'react';
-import { View, Text, Image, Linking } from 'react-native';
-import Animated, { FadeIn } from 'react-native-reanimated';
+import { View, Text, TextInput, Button, StyleSheet } from 'react-native'; // Ensure View is imported
+import { Picker } from '@react-native-picker/picker';
+import Animated, { FadeInDown, FadeIn } from 'react-native-reanimated';
 import { Platform } from 'react-native';
-import { styles } from './styles.ts';
-import { affiliateProducts } from './data.ts';
 
 const AnimatedView = Platform.OS === 'web' ? View : Animated.View;
+
+// ... rest of the code
 
 export const AffiliateSection: React.FC = () => {
     return (
