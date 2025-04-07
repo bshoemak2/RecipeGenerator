@@ -15,9 +15,11 @@ export const useRecipe = () => {
     const [isLoading, setIsLoading] = useState(false);
     const [lastRandom, setLastRandom] = useState(false);
     const [suggestion, setSuggestion] = useState('');
+    const [error, setError] = useState(null); // Added for explicit error tracking
 
     const fetchRecipe = async (isRandom = false) => {
         if (!ingredients.trim() && !isRandom) {
+            setError("Please enter ingredients or select Random Recipe!");
             setRecipe({ title: "Error", steps: ["Please enter ingredients or select Random Recipe!"], nutrition: { calories: 0 } });
             setIsLoading(false);
             setLastRandom(isRandom);
@@ -26,27 +28,34 @@ export const useRecipe = () => {
 
         setIsLoading(true);
         setRecipe(null);
+        setError(null); // Clear previous errors
         setLastRandom(isRandom);
-        const requestBody = JSON.stringify({
+
+        const requestBody = {
             ingredients: ingredients.split(',').map(item => item.trim()).filter(Boolean).slice(0, 10),
             preferences: { diet, time, style, category, language, isRandom }
-        });
+        };
+
+        const url = `${API_URL}/generate_recipe`;
+        console.log("Fetching recipe from:", url);
 
         try {
-            console.log("Fetching recipe from:", `${API_URL}/generate_recipe`);
-            const response = await fetch(`${API_URL}/generate_recipe`, {
+            const response = await fetch(url, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: requestBody,
+                body: JSON.stringify(requestBody),
             });
+
             if (!response.ok) {
                 const errorData = await response.json();
                 throw new Error(errorData.error || `Server error: ${response.status}`);
             }
+
             const data = await response.json();
             setRecipe(data);
         } catch (error) {
             console.error("Fetch error:", error.message);
+            setError(error.message);
             setRecipe({ title: "Error", steps: [error.message], nutrition: { calories: 0 } });
         } finally {
             setIsLoading(false);
@@ -56,7 +65,9 @@ export const useRecipe = () => {
     const toggleLanguage = () => {
         const newLanguage = language === 'english' ? 'spanish' : 'english';
         setLanguage(newLanguage);
-        if (ingredients || recipe) fetchRecipe();
+        if (ingredients || recipe) {
+            fetchRecipe(lastRandom); // Use lastRandom to maintain context
+        }
     };
 
     const clearInput = () => {
@@ -68,6 +79,7 @@ export const useRecipe = () => {
         setRecipe(null);
         setLastRandom(false);
         setSuggestion('');
+        setError(null); // Clear error on reset
     };
 
     return {
@@ -81,8 +93,11 @@ export const useRecipe = () => {
         isLoading, setIsLoading,
         lastRandom, setLastRandom,
         suggestion, setSuggestion,
+        error, setError, // Expose error state
         fetchRecipe,
         toggleLanguage,
         clearInput
     };
 };
+
+export default useRecipe;
