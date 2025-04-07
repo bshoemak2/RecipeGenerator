@@ -17,8 +17,12 @@ export const useFavorites = () => {
             try {
                 const saved = await AsyncStorage.getItem('favorites');
                 if (saved) {
-                    const parsedFavorites = JSON.parse(saved);
-                    console.log("Loaded favorites from AsyncStorage:", parsedFavorites);
+                    let parsedFavorites = JSON.parse(saved);
+                    parsedFavorites = parsedFavorites.map((fav, index) => ({
+                        ...fav,
+                        id: fav.id || Date.now() + index, // Unique fallback
+                    }));
+                    console.log("Loaded and fixed favorites from AsyncStorage:", parsedFavorites);
                     setFavorites(parsedFavorites);
                 } else {
                     console.log("No favorites found in AsyncStorage");
@@ -50,7 +54,14 @@ export const useFavorites = () => {
     };
 
     const removeFavorite = async (recipe_id, language) => {
-        console.log("RemoveFavorite called with ID:", recipe_id, "Language:", language, "Current favorites:", favorites);
+        if (!recipe_id) {
+            console.error("RemoveFavorite: No valid ID provided");
+            Alert.alert("Error", "Cannot remove recipe: Invalid ID");
+            return;
+        }
+        console.log("RemoveFavorite called with ID:", recipe_id, "Type:", typeof recipe_id, "Current favorites:", favorites);
+        console.log("Favorites IDs:", favorites.map(fav => ({ id: fav.id, type: typeof fav.id })));
+
         const confirmRemoval = await new Promise((resolve) => {
             Alert.alert(
                 language === 'english' ? "Remove Favorite" : "Eliminar Favorito",
@@ -75,13 +86,18 @@ export const useFavorites = () => {
 
         if (confirmRemoval) {
             try {
-                const newFavorites = favorites.filter((fav) => fav.id !== recipe_id);
+                // Ensure recipe_id is a number for comparison
+                const idToRemove = Number(recipe_id);
+                const newFavorites = favorites.filter(fav => Number(fav.id) !== idToRemove);
                 console.log("New favorites after filter:", newFavorites);
-                setFavorites([...newFavorites]);  // Force state update
-                if (selectedFavorite && selectedFavorite.id === recipe_id) {
+
+                // Update state with a fresh array
+                setFavorites([...newFavorites]);
+                if (selectedFavorite && Number(selectedFavorite.id) === idToRemove) {
                     setSelectedFavorite(null);
                     console.log("Cleared selectedFavorite");
                 }
+
                 await AsyncStorage.setItem('favorites', JSON.stringify(newFavorites));
                 console.log("Saved to AsyncStorage after removal:", newFavorites);
                 Alert.alert("Success", language === 'english' ? "Recipe removed from favorites" : "Receta eliminada de favoritos");

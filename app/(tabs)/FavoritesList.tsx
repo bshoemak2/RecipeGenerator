@@ -18,21 +18,27 @@ export const FavoritesList = ({ favorites, filteredFavorites, language, search, 
                 <Button title="✖" onPress={onClearSearch} color="#FF3B30" />
             </View>
             {filteredFavorites.length > 0 ? (
-                filteredFavorites.map((fav, index) => (
-                    <View key={index} style={styles.favItemContainer}>
-                        <Text
-                            style={[styles.favItem, styles.favItemHover]}
-                            onPress={() => onView(fav)}
-                        >
-                            {fav.title}
-                        </Text>
-                        <Button
-                            title={language === 'english' ? "Remove" : "Eliminar"}
-                            onPress={() => onRemove(fav.id, language)}  // Ensure async call
-                            color="#FF3B30"
-                        />
-                    </View>
-                ))
+                <>
+                    {console.log("Filtered favorites:", filteredFavorites)}
+                    {filteredFavorites.map((fav) => (
+                        <View key={fav.id} style={styles.favItemContainer}>
+                            <Text
+                                style={[styles.favItem, styles.favItemHover]}
+                                onPress={() => onView(fav)}
+                            >
+                                {fav.title}
+                            </Text>
+                            <Button
+                                title={language === 'english' ? "Remove" : "Eliminar"}
+                                onPress={() => {
+                                    console.log("Removing favorite with ID:", fav.id);
+                                    onRemove(fav.id, language);
+                                }}
+                                color="#FF3B30"
+                            />
+                        </View>
+                    ))}
+                </>
             ) : (
                 <Text>{language === 'english' ? 'No favorites found' : 'No se encontraron favoritos'}</Text>
             )}
