@@ -1,10 +1,11 @@
 // app/(tabs)/InputSection.tsx
 import React from 'react';
-import { View, Text, TextInput, Button, StyleSheet } from 'react-native';
+import { View, Text, TextInput, Button, StyleSheet } from 'react-native'; // Ensure Button is imported
 import { Picker } from '@react-native-picker/picker';
 import Animated, { FadeInDown, FadeIn } from 'react-native-reanimated';
 import { Platform } from 'react-native';
 
+// ... rest of the code
 const AnimatedView = Platform.OS === 'web' ? View : Animated.View;
 
 interface InputSectionProps {

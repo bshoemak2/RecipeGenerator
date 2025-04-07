@@ -1,6 +1,6 @@
 // app/(tabs)/index.tsx
 import React, { useState, useEffect } from 'react';
-import { ScrollView, View, StyleSheet, ActivityIndicator, Platform } from 'react-native'; // Add View here
+import { ScrollView, View, Button, StyleSheet, ActivityIndicator, Platform } from 'react-native'; // Add Button here
 import Animated, { Easing, FadeIn, FadeInUp } from 'react-native-reanimated';
 import Constants from 'expo-constants';
 import AsyncStorage from '@react-native-async-storage/async-storage';
