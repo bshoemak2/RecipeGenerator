@@ -1,11 +1,11 @@
 // app/(tabs)/InputSection.tsx
 import React from 'react';
-import { View, Text, TextInput, Button, StyleSheet } from 'react-native'; // Ensure Button is imported
+import { View, Text, TextInput, Button } from 'react-native';
 import { Picker } from '@react-native-picker/picker';
 import Animated, { FadeInDown, FadeIn } from 'react-native-reanimated';
 import { Platform } from 'react-native';
+import { styles } from './styles';
 
-// ... rest of the code
 const AnimatedView = Platform.OS === 'web' ? View : Animated.View;
 
 interface InputSectionProps {
@@ -126,50 +126,4 @@ export const InputSection: React.FC<InputSectionProps> = ({
   );
 };
 
-const styles = StyleSheet.create({
-  inputSection: {
-    gap: 20,
-    backgroundColor: 'rgba(255, 247, 247, 0.95)',
-    padding: 25,
-    borderRadius: 15,
-    shadowColor: '#000',
-    shadowOpacity: 0.1,
-    shadowRadius: 5,
-  },
-  label: {
-    fontSize: 20,
-    fontFamily: 'Arial',
-    color: '#4A4A4A',
-    fontWeight: '600',
-    letterSpacing: 0.5,
-    marginBottom: 5,
-  },
-  input: {
-    borderWidth: 0,
-    borderRadius: 12,
-    padding: 16,
-    fontSize: 16,
-    fontFamily: 'Arial',
-    backgroundColor: '#FFFFFF',
-    color: '#333',
-    shadowColor: '#000',
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
-    elevation: 2,
-  },
-  suggestionRow: {
-    flexDirection: 'row',
-    gap: 15,
-    alignItems: 'center',
-    flexWrap: 'wrap',
-  },
-  picker: {
-    flex: 1,
-    height: 50,
-    backgroundColor: '#FFF',
-    borderRadius: 12,
-    borderColor: '#E0E0E0',
-    borderWidth: 1,
-    fontFamily: 'Arial',
-  },
-});
+export default InputSection;

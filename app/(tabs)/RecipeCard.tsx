@@ -1,7 +1,8 @@
 // app/(tabs)/RecipeCard.tsx
 import React from 'react';
-import { View, Text, Button, StyleSheet } from 'react-native'; // Ensure View is imported
+import { View, Text, Button } from 'react-native';
 import Animated, { FadeInDown } from 'react-native-reanimated';
+import { styles } from './styles';
 
 interface RecipeCardProps {
   recipe: any;
@@ -13,7 +14,7 @@ interface RecipeCardProps {
 
 export const RecipeCard: React.FC<RecipeCardProps> = ({ recipe, language, onShare, onSave, onBack }) => {
   return (
-    <Animated.View entering={FadeInDown.duration(800)} style={[styles.container, styles.recipeCard]}>
+    <Animated.View entering={FadeInDown.duration(800)} style={[styles.recipeContainer, styles.recipeCard]}>
       <Text style={styles.title}>🎉 {recipe.title} 🎉</Text>
       <Text style={styles.subtitle}>🥕 {language === 'english' ? 'Ingredients 🌟' : 'Ingredientes 🌟'}</Text>
       {recipe.ingredients && recipe.ingredients.length > 0 ? (
@@ -53,3 +54,5 @@ export const RecipeCard: React.FC<RecipeCardProps> = ({ recipe, language, onShar
     </Animated.View>
   );
 };
+
+export default RecipeCard;

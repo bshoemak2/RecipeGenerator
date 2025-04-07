@@ -1,6 +1,8 @@
 // app/(tabs)/FavoritesList.tsx
 import React from 'react';
-import { View, Text, TextInput, Button, StyleSheet } from 'react-native'; // Ensure View is imported
+import { View, Text, TextInput, Button } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { styles } from './styles';
 
 interface FavoritesListProps {
   favorites: any[];
@@ -72,66 +74,4 @@ export const FavoritesList: React.FC<FavoritesListProps> = ({
   );
 };
 
-const styles = StyleSheet.create({
-  favorites: {
-    marginTop: 30,
-    padding: 30,
-    backgroundColor: '#FFF',
-    borderRadius: 15,
-    shadowColor: '#000',
-    shadowOpacity: 0.1,
-    shadowRadius: 5,
-    borderLeftWidth: 5,
-    borderLeftColor: '#4ECDC4',
-  },
-  subtitle: {
-    fontSize: 24,
-    fontFamily: 'Arial',
-    fontWeight: '600',
-    color: '#4A4A4A',
-    marginBottom: 12,
-    borderBottomWidth: 2,
-    borderBottomColor: '#4ECDC4',
-    paddingBottom: 6,
-  },
-  searchRow: {
-    flexDirection: 'row',
-    gap: 10,
-    alignItems: 'center',
-    marginBottom: 10,
-  },
-  input: {
-    borderWidth: 0,
-    borderRadius: 12,
-    padding: 16,
-    fontSize: 16,
-    fontFamily: 'Arial',
-    backgroundColor: '#FFFFFF',
-    color: '#333',
-    shadowColor: '#000',
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
-    elevation: 2,
-  },
-  favItemContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    paddingVertical: 5,
-    borderBottomWidth: 1,
-    borderBottomColor: '#E0E0E0',
-  },
-  favItem: {
-    fontSize: 16,
-    fontFamily: 'Arial',
-    color: '#555',
-    lineHeight: 28,
-    marginVertical: 5,
-  },
-  noFavorites: {
-    fontSize: 16,
-    color: '#666',
-    textAlign: 'center',
-    marginTop: 20,
-  },
-});
+export default FavoritesList;

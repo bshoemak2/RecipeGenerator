@@ -1,6 +1,6 @@
 // app/(tabs)/index.tsx
 import React, { useState, useEffect } from 'react';
-import { ScrollView, View, Button, StyleSheet, ActivityIndicator, Platform } from 'react-native'; // Add Button here
+import { ScrollView, View, Text, Button, StyleSheet, ActivityIndicator, Platform } from 'react-native';
 import Animated, { Easing, FadeIn, FadeInUp } from 'react-native-reanimated';
 import Constants from 'expo-constants';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -8,6 +8,7 @@ import { InputSection } from './InputSection';
 import { RecipeCard } from './RecipeCard';
 import { AffiliateSection } from './AffiliateSection';
 import { FavoritesList } from './FavoritesList';
+import { styles } from './styles';
 
 const AnimatedView = Platform.OS === 'web' ? View : Animated.View;
 
@@ -214,94 +215,3 @@ export default function HomeScreen() {
     </ScrollView>
   );
 }
-
-const styles = StyleSheet.create({
-  scrollContainer: {
-    backgroundColor: 'linear-gradient(135deg, #FEE2E2 0%, #FECACA 100%)', // Note: Use CSS for web
-    flexGrow: 1,
-  },
-  scrollContent: {
-    flexGrow: 1,
-    paddingBottom: 40,
-  },
-  container: {
-    padding: 35,
-    gap: 25,
-    maxWidth: 900,
-    alignSelf: 'center',
-    width: '100%',
-    backgroundColor: 'rgba(255, 255, 255, 0.95)',
-    borderRadius: 20,
-    marginVertical: 25,
-    shadowColor: '#000',
-    shadowOpacity: 0.15,
-    shadowRadius: 10,
-    elevation: 5,
-  },
-  header: {
-    fontSize: 40,
-    fontFamily: 'Georgia',
-    fontWeight: 'bold',
-    color: '#D32F2F',
-    textAlign: 'center',
-    textShadowColor: 'rgba(0, 0, 0, 0.2)',
-    textShadowOffset: { width: 1, height: 1 },
-    textShadowRadius: 3,
-    marginBottom: 10,
-  },
-  trustSection: {
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    marginBottom: 15,
-  },
-  trustText: {
-    fontSize: 14,
-    fontFamily: 'Arial',
-    color: '#4A4A4A',
-    fontWeight: '500',
-  },
-  spinner: {
-    marginVertical: 20,
-  },
-  buttonRow: {
-    flexDirection: 'row',
-    gap: 20,
-    justifyContent: 'center',
-    marginTop: 20,
-    flexWrap: 'wrap',
-  },
-  errorContainer: {
-    marginTop: 20,
-    padding: 20,
-    backgroundColor: '#FFF5F5',
-    borderRadius: 10,
-    borderWidth: 1,
-    borderColor: '#FF3B30',
-    alignItems: 'center',
-    shadowColor: '#000',
-    shadowOpacity: 0.1,
-    shadowRadius: 5,
-  },
-  error: {
-    fontSize: 16,
-    fontFamily: 'Arial',
-    color: '#FF3B30',
-    textAlign: 'center',
-    marginBottom: 10,
-    fontWeight: '500',
-  },
-  footer: {
-    marginTop: 20,
-    padding: 10,
-    alignItems: 'center',
-  },
-  footerText: {
-    fontSize: 12,
-    fontFamily: 'Arial',
-    color: '#777',
-  },
-  footerLink: {
-    color: '#1DA1F2',
-    textDecorationLine: 'underline',
-  },
-});
