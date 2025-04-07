@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { View, Text, Button, TextInput, StyleSheet } from 'react-native';
 
-const API_URL = 'https://recipegenerator-api.onrender.com';
+const API_URL = Constants.expoConfig?.extra?.apiUrl || process.env.API_URL || 'http://127.0.0.1:5000';
 
 export default function HomeScreen() {
   const [ingredients, setIngredients] = useState('');
