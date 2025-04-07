@@ -1,19 +1,16 @@
 // app/(tabs)/index.tsx
-// Force rebuild for Render - April 2025
 import React, { useState } from 'react';
 import { View, Text, Button, TextInput, StyleSheet } from 'react-native';
-import Constants from 'expo-constants';
+
+const API_URL = 'https://recipegenerator-api.onrender.com';
 
 export default function HomeScreen() {
   const [ingredients, setIngredients] = useState('');
   const [recipe, setRecipe] = useState(null);
-  
-  // Use dynamic API_URL from app.json or env, with fallback
-  const API_URL = Constants.expoConfig?.extra?.apiUrl || process.env.API_URL || 'http://127.0.0.1:5000';
 
   const fetchRecipe = async () => {
     const url = `${API_URL}/generate_recipe`;
-    console.log("Fetching recipe from:", url); // Debug log
+    console.log("Fetching recipe from:", url);
     try {
       const response = await fetch(url, {
         method: 'POST',
@@ -25,7 +22,13 @@ export default function HomeScreen() {
           preferences: { language: 'english' },
         }),
       });
+      console.log("Response status:", response.status);
+      if (!response.ok) {
+        const errorText = await response.text();
+        throw new Error(`Server error: ${response.status} - ${errorText}`);
+      }
       const data = await response.json();
+      console.log("Response data:", data);
       if (data.error) {
         console.error("Recipe error:", data.error);
         setRecipe({ title: 'Error', steps: [data.error] });
@@ -33,8 +36,8 @@ export default function HomeScreen() {
         setRecipe(data);
       }
     } catch (error) {
-      console.error("Fetch error:", error);
-      setRecipe({ title: 'Error', steps: ['Failed to fetch recipe'] });
+      console.error("Fetch error details:", error.message);
+      setRecipe({ title: 'Error', steps: [error.message] });
     }
   };
 

@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import Constants from 'expo-constants';
 
-const API_URL = Constants.expoConfig?.extra?.apiUrl || process.env.API_URL || 'http://127.0.0.1:5000';
+const API_URL = 'https://recipegenerator-api.onrender.com';
 
 export const useRecipe = () => {
     const [ingredients, setIngredients] = useState('');
