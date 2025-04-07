@@ -20,7 +20,7 @@ logging.basicConfig(
 
 app = Flask(__name__)
 app.secret_key = os.getenv("SECRET_KEY", "your-secret-key")
-CORS(app, resources={r"/generate_recipe": {"origins": ["http://localhost:8080", "https://recipegenerator-ort9.onrender.com"]}})  # Moved here
+CORS(app, resources={r"/generate_recipe": {"origins": ["http://localhost:8080", "https://recipegenerator-ort9.onrender.com"]}})  # Allow localhost
 
 limiter = Limiter(
     get_remote_address,
