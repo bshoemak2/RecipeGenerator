@@ -28,9 +28,8 @@ export default function HomeScreen() {
   const [selectedFavorite, setSelectedFavorite] = useState(null);
   const [search, setSearch] = useState('');
 
-// app/(tabs)/index.tsx
-const API_URL = Constants.expoConfig?.extra?.apiUrl || 'https://recipegenerator-api.onrender.com';
-console.log("API_URL resolved to:", API_URL);
+  const API_URL = Constants.expoConfig?.extra?.apiUrl || 'https://recipegenerator-api.onrender.com';
+  console.log("API_URL resolved to:", API_URL);
 
   useEffect(() => {
     const loadFavorites = async () => {
@@ -94,7 +93,7 @@ console.log("API_URL resolved to:", API_URL);
 
     try {
       if (platform === 'facebook') {
-        const fbUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}&quote=${encodeURIComponent(shareText)}`;
+        const fbUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}"e=${encodeURIComponent(shareText)}`;
         Platform.OS === 'web' ? window.open(fbUrl, '_blank') : await Linking.openURL(fbUrl);
       } else if (platform === 'x') {
         const xUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(fullMessage)}`;
@@ -241,7 +240,7 @@ console.log("API_URL resolved to:", API_URL);
               style={styles.footerLink}
               onPress={() => Linking.openURL('https://www.privacypolicygenerator.info/live.php?token=YOUR_TOKEN_HERE')}
             >
-              Privacy Policy
+              View Our Privacy Policy Here
             </Text>
           </Text>
         </View>
