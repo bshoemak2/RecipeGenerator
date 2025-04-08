@@ -4,6 +4,7 @@ import { ScrollView, View, Text, Button, StyleSheet, ActivityIndicator, Platform
 import Animated, { Easing, FadeIn, FadeInUp } from 'react-native-reanimated';
 import Constants from 'expo-constants';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { Link } from 'expo-router'; // Add this import
 import { InputSection } from '../components/InputSection';
 import { RecipeCard } from '../components/RecipeCard';
 import { AffiliateSection } from '../components/AffiliateSection';
@@ -88,7 +89,7 @@ export default function HomeScreen() {
     if (!currentRecipe) return;
 
     const shareText = currentRecipe.shareText || `${currentRecipe.title}\n${currentRecipe.ingredients.join('\n')}\n${currentRecipe.steps.join('\n')}`;
-    const url = 'https://recipegenerator-frontend.onrender.com/'; // Update to new frontend URL
+    const url = 'https://recipegenerator-frontend.onrender.com/';
     const fullMessage = `${shareText}\nCheck out my app: ${url}`;
 
     try {
@@ -233,21 +234,18 @@ export default function HomeScreen() {
           />
         )}
         <AffiliateSection />
-        <View style={styles.footer}>
-          <Image 
-            source={require('../../assets/gt.png')} 
-            style={{ width: 20, height: 20, marginRight: 5 }} 
-          />
-          <Text style={styles.footerText}>
-            © 2025 Recipe Generator |{' '}
-            <Text
-              style={styles.footerLink}
-              onPress={() => Linking.openURL('https://www.privacypolicygenerator.info/live.php?token=YOUR_TOKEN_HERE')}
-            >
-              View Our Privacy Policy Here
-            </Text>
-          </Text>
-        </View>
+<View style={styles.footer}>
+  <Image 
+    source={require('../assets/gt.png')} 
+    style={{ width: 50, height: 50, marginRight: 10 }} 
+  />
+  <Text style={styles.footerText}>
+    © 2025 Recipe Generator |{' '}
+    <Link href="/privacy-policy" style={styles.footerLink}>
+      View Our Privacy Policy Here
+    </Link>
+  </Text>
+</View>
       </AnimatedView>
     </ScrollView>
   );

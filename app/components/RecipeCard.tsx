@@ -1,8 +1,8 @@
-// app/(tabs)/RecipeCard.tsx
+// app/components/RecipeCard.tsx
 import React from 'react';
 import { View, Text, Button } from 'react-native';
 import Animated, { FadeInDown } from 'react-native-reanimated';
-import { styles } from './styles';
+import { styles } from '../(tabs)/styles'; // Correct path to app/(tabs)/
 
 interface RecipeCardProps {
   recipe: any;

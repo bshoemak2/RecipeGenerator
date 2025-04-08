@@ -1,9 +1,9 @@
-// app/(tabs)/AffiliateSection.tsx
+// app/components/AffiliateSection.tsx
 import React from 'react';
 import { View, Text, Image, Linking } from 'react-native';
 import Animated, { FadeIn } from 'react-native-reanimated';
 import { Platform } from 'react-native';
-import { styles } from './styles'; // Correct path from app/(tabs)/
+import { styles } from '../(tabs)/styles'; // Correct path to app/(tabs)/
 
 const AnimatedView = Platform.OS === 'web' ? View : Animated.View;
 

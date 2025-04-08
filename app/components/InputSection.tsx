@@ -1,10 +1,10 @@
-// app/(tabs)/InputSection.tsx
+// app/components/InputSection.tsx
 import React from 'react';
 import { View, Text, TextInput, Button } from 'react-native';
 import { Picker } from '@react-native-picker/picker';
 import Animated, { FadeInDown, FadeIn } from 'react-native-reanimated';
 import { Platform } from 'react-native';
-import { styles } from './styles';
+import { styles } from '../(tabs)/styles'; // Correct path to app/(tabs)/
 
 const AnimatedView = Platform.OS === 'web' ? View : Animated.View;
 
