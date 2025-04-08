@@ -1,12 +1,12 @@
 // app/(tabs)/index.tsx
 import React, { useState, useEffect } from 'react';
-import { ScrollView, View, Text, Button, StyleSheet, ActivityIndicator, Platform, Share, Linking } from 'react-native';
+import { ScrollView, View, Text, Button, StyleSheet, ActivityIndicator, Platform, Share, Linking, Image } from 'react-native';
 import Animated, { Easing, FadeIn, FadeInUp } from 'react-native-reanimated';
 import Constants from 'expo-constants';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { InputSection } from './InputSection';
-import { RecipeCard } from './RecipeCard';
-import { AffiliateSection } from './AffiliateSection';
+import { InputSection } from '../components/InputSection';
+import { RecipeCard } from '../components/RecipeCard';
+import { AffiliateSection } from '../components/AffiliateSection';
 import { FavoritesList } from './FavoritesList';
 import { styles } from './styles';
 
@@ -88,7 +88,7 @@ export default function HomeScreen() {
     if (!currentRecipe) return;
 
     const shareText = currentRecipe.shareText || `${currentRecipe.title}\n${currentRecipe.ingredients.join('\n')}\n${currentRecipe.steps.join('\n')}`;
-    const url = 'https://recipegenerator-ort9.onrender.com/';
+    const url = 'https://recipegenerator-frontend.onrender.com/'; // Update to new frontend URL
     const fullMessage = `${shareText}\nCheck out my app: ${url}`;
 
     try {
@@ -234,6 +234,10 @@ export default function HomeScreen() {
         )}
         <AffiliateSection />
         <View style={styles.footer}>
+          <Image 
+            source={require('../../assets/gt.png')} 
+            style={{ width: 20, height: 20, marginRight: 5 }} 
+          />
           <Text style={styles.footerText}>
             © 2025 Recipe Generator |{' '}
             <Text
