@@ -1,6 +1,6 @@
 // app/(tabs)/index.tsx
 import React, { useState, useEffect } from 'react';
-import { ScrollView, View, Text, Button, StyleSheet, ActivityIndicator, Platform } from 'react-native';
+import { ScrollView, View, Text, Button, StyleSheet, ActivityIndicator, Platform, Share, Linking } from 'react-native';
 import Animated, { Easing, FadeIn, FadeInUp } from 'react-native-reanimated';
 import Constants from 'expo-constants';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -28,7 +28,9 @@ export default function HomeScreen() {
   const [selectedFavorite, setSelectedFavorite] = useState(null);
   const [search, setSearch] = useState('');
 
-  const API_URL = Constants.expoConfig?.extra?.apiUrl || process.env.API_URL || 'http://127.0.0.1:5000';
+// app/(tabs)/index.tsx
+const API_URL = Constants.expoConfig?.extra?.apiUrl || 'https://recipegenerator-api.onrender.com';
+console.log("API_URL resolved to:", API_URL);
 
   useEffect(() => {
     const loadFavorites = async () => {
@@ -79,6 +81,38 @@ export default function HomeScreen() {
       const newFavorites = [...favorites, recipe];
       setFavorites(newFavorites);
       await AsyncStorage.setItem('favorites', JSON.stringify(newFavorites));
+    }
+  };
+
+  const shareRecipe = async (platform = 'default') => {
+    const currentRecipe = selectedFavorite || recipe;
+    if (!currentRecipe) return;
+
+    const shareText = currentRecipe.shareText || `${currentRecipe.title}\n${currentRecipe.ingredients.join('\n')}\n${currentRecipe.steps.join('\n')}`;
+    const url = 'https://recipegenerator-ort9.onrender.com/';
+    const fullMessage = `${shareText}\nCheck out my app: ${url}`;
+
+    try {
+      if (platform === 'facebook') {
+        const fbUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}&quote=${encodeURIComponent(shareText)}`;
+        Platform.OS === 'web' ? window.open(fbUrl, '_blank') : await Linking.openURL(fbUrl);
+      } else if (platform === 'x') {
+        const xUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(fullMessage)}`;
+        Platform.OS === 'web' ? window.open(xUrl, '_blank') : await Linking.openURL(xUrl);
+      } else if (platform === 'whatsapp') {
+        const waUrl = `https://wa.me/?text=${encodeURIComponent(fullMessage)}`;
+        Platform.OS === 'web' ? window.open(waUrl, '_blank') : await Linking.openURL(waUrl);
+      } else if (platform === 'email') {
+        const emailUrl = `mailto:?subject=${encodeURIComponent('Check out this recipe!')}&body=${encodeURIComponent(fullMessage)}`;
+        Platform.OS === 'web' ? window.open(emailUrl, '_blank') : await Linking.openURL(emailUrl);
+      } else {
+        const result = await Share.share({
+          message: fullMessage,
+        });
+        if (result.action !== Share.sharedAction) console.log('Share dismissed');
+      }
+    } catch (error) {
+      console.error('Share error:', error);
     }
   };
 
