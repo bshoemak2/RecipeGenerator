@@ -25,35 +25,12 @@ logging.basicConfig(
 app = Flask(__name__)
 app.secret_key = os.getenv("SECRET_KEY", "your-secret-key")
 CORS(app, resources={
-    r"/generate_recipe": {
-        "origins": [
-            "http://localhost:8080",
-            "http://localhost:8081",
-            "https://recipegenerator-ort9.onrender.com",
-            "https://recipegenerator-frontend.onrender.com"
-        ],
-        "methods": ["GET", "POST", "OPTIONS"],
-        "allow_headers": ["Content-Type", "Origin"]
-    },
-    r"/ingredients": {
-        "origins": [
-            "http://localhost:8080",
-            "http://localhost:8081",
-            "https://recipegenerator-ort9.onrender.com",
-            "https://recipegenerator-frontend.onrender.com"
-        ],
-        "methods": ["GET", "OPTIONS"],
-        "allow_headers": ["Content-Type", "Origin"]
-    }
+    r"/generate_recipe": {"origins": ["*"], "methods": ["GET", "POST", "OPTIONS"], "allow_headers": ["Content-Type", "Origin"]},
+    r"/ingredients": {"origins": ["*"], "methods": ["GET", "OPTIONS"], "allow_headers": ["Content-Type", "Origin"]},
+    r"/": {"origins": ["*"], "methods": ["GET"]}
 }, supports_credentials=True)
 
-limiter = Limiter(
-    get_remote_address,
-    app=app,
-    default_limits=["100 per day", "10 per minute"],
-    storage_uri="memory://"
-)
-
+limiter = Limiter(get_remote_address, app=app, default_limits=["100 per day", "10 per minute"], storage_uri="memory://")
 cache = Cache(app, config={'CACHE_TYPE': 'simple'})
 executor = ThreadPoolExecutor(max_workers=4)
 
@@ -68,7 +45,10 @@ logging.debug(f"Loaded {len(ALL_RECIPES)} recipes from database: {ALL_RECIPES}")
 if not ALL_RECIPES:
     logging.warning("No recipes found in database; falling back to dynamic generation")
 
-COOKING_METHODS = ["Bake", "Grill", "Roast", "Boil", "Fry", "Steam", "Skillet"]
+COOKING_METHODS = ["Burn", "Chuck", "Sizzle", "Holler At", "Wrestle", "Smack", "Yeet"]
+EQUIPMENT_OPTIONS = ["rusty skillet", "dent dented pot", "old boot", "grandma's flip-flop", "truck hood", "banjo"]
+FUNNY_PREFIXES = ["Redneck", "Drunk", "Hillbilly", "Limping Eagle's", "Caveman", "Sassy Granny's", "Bootleg"]
+FUNNY_SUFFIXES = ["Pudding", "Surprise", "Mess", "Stew", "Disaster", "Holler", "Slop"]
 
 def score_recipe(recipe, ingredients, preferences):
     score = 0
@@ -83,12 +63,8 @@ def score_recipe(recipe, ingredients, preferences):
                 recipe_ingredients = set(recipe['ingredients'])
         input_ingredients = set(ingredients)
         for input_ing in input_ingredients:
-            best_match = max(
-                [fuzz.ratio(input_ing.lower(), r_ing.lower()) for r_ing in recipe_ingredients],
-                default=0
-            )
+            best_match = max([fuzz.ratio(input_ing.lower(), r_ing.lower()) for r_ing in recipe_ingredients], default=0)
             score += best_match / 100
-    # Removed diet and time scoring
     return score
 
 def process_recipe(recipe):
@@ -96,30 +72,37 @@ def process_recipe(recipe):
         logging.debug(f"Invalid recipe object: {recipe}")
         return None
     try:
-        language = recipe.get('language', 'english')  # Ensure language is available
-        recipe['title'] = recipe.get(f'title_{language}', recipe.get('title_en', 'Untitled'))
-        recipe['steps'] = recipe.get(f'steps_{language}', recipe.get('steps_en', recipe.get('steps', [])))
+        language = recipe.get('language', 'english')
+        input_ingredients = recipe.get('input_ingredients', recipe.get('ingredients', []))
+        method = random.choice(COOKING_METHODS)
+        prefix = random.choice(FUNNY_PREFIXES)
+        suffix = random.choice(FUNNY_SUFFIXES)
         if recipe['ingredients']:
             if isinstance(recipe['ingredients'][0], (tuple, list)):
                 ingredients_list = sorted([f"{qty} {item}" if qty else item for qty, item in recipe['ingredients']], key=lambda x: x.split()[-1])
                 nutrition_items = [item for qty, item in recipe['ingredients']]
             else:
                 ingredients_list = sorted([str(item) for item in recipe['ingredients']])
-                nutrition_items = recipe['ingredients']
+                nutrition_items = [item.split()[-1] for item in recipe['ingredients']]
             recipe['ingredients'] = ingredients_list
         else:
             recipe['ingredients'] = []
             nutrition_items = []
-        # Generate title with random method if Untitled
-        if recipe['title'] == 'Untitled' and recipe['ingredients']:
-            title_parts = [item.split()[-1].capitalize() for item in recipe['ingredients'][:2]]
-            method = random.choice(COOKING_METHODS)
-            recipe['title'] = f"{method} {' and '.join(title_parts)}"
+        title_items = [ing.capitalize() for ing in input_ingredients] if input_ingredients else [item.split()[-1].capitalize() for item in ingredients_list]
+        recipe['title'] = f"{prefix} {method} {' and '.join(title_items[:2])} {suffix}" if title_items else f"{prefix} {method} {suffix}"
+        equipment = random.sample(EQUIPMENT_OPTIONS, k=min(3, len(EQUIPMENT_OPTIONS)))
+        primary_equipment = equipment[0]
+        article = "an" if primary_equipment[0] in 'aeiou' else "a"
+        recipe['steps'] = [
+            f"Prep: Throw {' and '.join(ingredients_list)} into the fray like a boss.",
+            f"Use {article} {primary_equipment} to {method.lower()} the crap outta it—channel your inner chaos.",
+            f"Serve it hot, preferably with a side of regret and a cold beer."
+        ]
+        recipe['equipment'] = equipment
         nutrition_future = executor.submit(calculate_nutrition, nutrition_items) if nutrition_items else None
-        share_text = generate_share_text(recipe, language, is_predefined=not recipe.get('isRandom', False))
-        recipe['nutrition'] = recipe.get('nutrition', nutrition_future.result() if nutrition_future else {"calories": 0})
-        recipe['shareText'] = share_text
-        for key in ['title_en', 'title_es', 'steps_en', 'steps_es']:
+        recipe['nutrition'] = recipe.get('nutrition', nutrition_future.result() if nutrition_future else {"calories": random.randint(100, 1000)})
+        recipe['shareText'] = f"Behold my culinary chaos: {recipe['title']}\nIngredients: {' '.join(ingredients_list)}\nSteps:\n{' '.join(recipe['steps'])}\nCalories: {recipe['nutrition']['calories']} (or enough to regret tomorrow)"
+        for key in ['title_en', 'title_es', 'steps_en', 'steps_es', 'cooking_time', 'difficulty', 'servings', 'tips', 'input_ingredients']:
             recipe.pop(key, None)
         return recipe
     except Exception as e:
@@ -127,13 +110,24 @@ def process_recipe(recipe):
         return None
 
 INGREDIENT_CATEGORIES = {
-    "meat": sorted(["chicken", "beef", "pork", "lamb"]),
+    "meat": sorted(["ground beef", "chicken", "pork", "lamb", "pichana", "churrasco", "ribeye steaks"]),
     "vegetables": sorted(["carrot", "broccoli", "onion", "potato"]),
     "fruits": sorted(["apple", "banana", "lemon", "orange"]),
-    "seafood": sorted(["salmon", "shrimp", "cod", "tuna"]),
+    "seafood": sorted(["salmon", "shrimp", "cod", "tuna", "yellowtail snapper", "grouper", "red snapper", "oysters"]),
     "bread_carbs": sorted(["bread", "pasta", "rice", "tortilla"]),
     "dairy": sorted(["cheese", "milk", "butter", "yogurt"])
 }
+
+@app.route('/', methods=['GET'])
+def home():
+    return jsonify({
+        "message": "Welcome to the Chuckle & Chow Recipe API—Where Food Meets Funny!",
+        "endpoints": {
+            "/ingredients": "GET - Grab some grub options",
+            "/generate_recipe": "POST - Cook up a laugh riot (send ingredients and preferences)"
+        },
+        "status": "cookin’ and jokin’"
+    })
 
 @app.route('/ingredients', methods=['GET', 'OPTIONS'])
 @limiter.limit("50 per day")
@@ -148,25 +142,22 @@ def get_ingredients():
 def generate_recipe():
     if request.method == 'OPTIONS':
         return '', 200
-
     try:
         data = request.get_json(silent=True)
         if not isinstance(data, dict):
-            raise ValueError("Invalid JSON payload")
+            raise ValueError("Invalid JSON payload—did you sneeze on the keyboard?")
         ingredients = data.get('ingredients', [])
         preferences = data.get('preferences', {})
         logging.debug(f"Extracted inputs: ingredients={ingredients}, preferences={preferences}")
-
         if not isinstance(ingredients, list) or not isinstance(preferences, dict):
-            raise ValueError("Ingredients must be a list and preferences a dict")
-        
+            raise ValueError("Ingredients should be a list and preferences a dict, you culinary rebel!")
         language = preferences.get('language', 'english').lower()
         is_random = preferences.get('isRandom', False)
-        style = preferences.get('style', '')  # Keep style
-        category = preferences.get('category', '')  # Keep category
+        style = preferences.get('style', '')
+        category = preferences.get('category', '')
 
         def process_and_enrich_recipe(recipe):
-            processed = process_recipe({**recipe, 'language': language})
+            processed = process_recipe({**recipe, 'input_ingredients': ingredients, 'language': language})
             if processed and style:
                 processed['title'] = f"{processed['title']} ({style})"
             if processed and category:
@@ -193,7 +184,7 @@ def generate_recipe():
                 processed_recipe = process_and_enrich_recipe(recipe)
                 if not processed_recipe:
                     logging.error(f"Failed to generate fallback dynamic recipe: {recipe}")
-                    return jsonify({"error": "No recipes available"}), 500
+                    return jsonify({"error": "No recipes available—kitchen’s closed, folks!"}), 500
             logging.info(f"Generated random recipe: {processed_recipe['title']}")
             return jsonify(processed_recipe)
 
@@ -211,7 +202,7 @@ def generate_recipe():
         processed_recipe = process_and_enrich_recipe(recipe)
         if not processed_recipe:
             logging.error(f"Failed to generate dynamic recipe: {recipe}")
-            return jsonify({"error": "Recipe generation failed"}), 500
+            return jsonify({"error": "Recipe generation flopped—blame the chef!"}), 500
         logging.info(f"Generated dynamic recipe: {processed_recipe['title']}")
         return jsonify(processed_recipe)
 
@@ -220,7 +211,7 @@ def generate_recipe():
         return jsonify({"error": str(ve)}), 400
     except Exception as e:
         logging.error(f"Unexpected error in generate_recipe: {str(e)}", exc_info=True)
-        return jsonify({"error": "Internal server error"}), 500
+        return jsonify({"error": "Something went belly-up—probably too much whiskey in the code!"}), 500
 
 if __name__ == "__main__":
     port = int(os.getenv("PORT", 5000))
