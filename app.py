@@ -24,11 +24,14 @@ CORS(app, resources={
   r"/generate_recipe": {
     "origins": [
       "http://localhost:8080",
+      "http://localhost:8081",
       "https://recipegenerator-ort9.onrender.com",
       "https://recipegenerator-frontend.onrender.com"
-    ]
+    ],
+    "methods": ["GET", "POST", "OPTIONS"],
+    "allow_headers": ["Content-Type", "Origin"]
   }
-})
+}, supports_credentials=True)  # Ensure CORS headers are sent
 
 limiter = Limiter(
     get_remote_address,
@@ -43,9 +46,12 @@ try:
 except Exception as e:
     logging.error(f"Failed to initialize database: {str(e)}")
 
-@app.route('/generate_recipe', methods=['POST'])
+@app.route('/generate_recipe', methods=['POST', 'OPTIONS'])
 @limiter.limit("10 per minute")
 def generate_recipe():
+    if request.method == 'OPTIONS':
+        return '', 200  # Handle preflight explicitly
+
     try:
         logging.debug(f"Raw request JSON: {request.json}")
         data = request.json
@@ -58,11 +64,10 @@ def generate_recipe():
 
         if is_random:
             recipe = generate_random_recipe(language)
-            logging.debug(f"Random recipe result: {recipe}")
             if not recipe or "error" in recipe:
                 logging.error(f"Failed to generate random recipe: {recipe.get('error', 'Unknown error')}")
                 return jsonify({"error": recipe.get('error', "No recipes available")}), 500
-            recipe['ingredients'] = [f"{qty} {item}" for item, qty in recipe['ingredients']]
+            recipe['ingredients'] = sorted([f"{qty} {item}" for item, qty in recipe['ingredients']]) if recipe['ingredients'] else []
             share_text = generate_share_text(recipe, language, is_predefined=True)
             logging.info(f"Generated random recipe: {recipe['title']}")
             return jsonify({
@@ -82,7 +87,7 @@ def generate_recipe():
         if ingredients:
             recipe = match_predefined_recipe(ingredients, language)
             if recipe:
-                recipe['ingredients'] = [f"{qty} {item}" for item, qty in recipe['ingredients']]
+                recipe['ingredients'] = sorted([f"{qty} {item}" for item, qty in recipe['ingredients']]) if recipe['ingredients'] else []
                 share_text = generate_share_text(recipe, language, is_predefined=True)
                 logging.info(f"Matched predefined recipe: {recipe['title']}")
                 return jsonify({
@@ -100,8 +105,8 @@ def generate_recipe():
                 })
 
         recipe = generate_dynamic_recipe(ingredients, preferences)
-        recipe['nutrition'] = calculate_nutrition([item for item, qty in recipe['ingredients']])
-        recipe['ingredients'] = [f"{qty} {item}" for item, qty in recipe['ingredients']]
+        recipe['nutrition'] = calculate_nutrition([item for item, qty in recipe['ingredients']]) if recipe['ingredients'] else {"calories": 0}
+        recipe['ingredients'] = sorted([f"{qty} {item}" for item, qty in recipe['ingredients']]) if recipe['ingredients'] else []
         share_text = generate_share_text(recipe, language)
         logging.info(f"Generated dynamic recipe: {recipe['title']}")
         return jsonify(recipe)
