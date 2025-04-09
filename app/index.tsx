@@ -1,15 +1,16 @@
-// app/(tabs)/index.tsx
+// app/index.tsx
 import React, { useState, useEffect } from 'react';
-import { ScrollView, View, Text, Button, StyleSheet, ActivityIndicator, Platform, Share, Linking, Image } from 'react-native';
+import { ScrollView, View, Text, Button, StyleSheet, ActivityIndicator, Platform, Share, Linking, Image, TouchableOpacity } from 'react-native';
 import Animated, { Easing, FadeIn, FadeInUp } from 'react-native-reanimated';
 import Constants from 'expo-constants';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Link } from 'expo-router';
-import { InputSection } from '../components/InputSection';
-import { RecipeCard } from '../components/RecipeCard';
-import { AffiliateSection } from '../components/AffiliateSection';
+import { InputSection } from './components/InputSection';
+import { RecipeCard } from './components/RecipeCard';
+import { AffiliateSection } from './components/AffiliateSection';
 import { FavoritesList } from './FavoritesList';
-import { styles } from './styles';
+import { styles } from './_styles';
+import * as Clipboard from 'expo-clipboard';
 
 const AnimatedView = Platform.OS === 'web' ? View : Animated.View;
 
@@ -28,14 +29,18 @@ export default function HomeScreen() {
   const [showFavorites, setShowFavorites] = useState(false);
   const [selectedFavorite, setSelectedFavorite] = useState(null);
   const [search, setSearch] = useState('');
+  const [copied, setCopied] = useState(false);
 
-  const API_URL = Constants.expoConfig?.extra?.apiUrl || 'https://recipegenerator-api.onrender.com';
-  console.log("API_URL resolved to:", API_URL);
+  const API_URL = 'https://recipegenerator-api.onrender.com';
 
   useEffect(() => {
     const loadFavorites = async () => {
-      const saved = await AsyncStorage.getItem('favorites');
-      if (saved) setFavorites(JSON.parse(saved));
+      try {
+        const saved = await AsyncStorage.getItem('favorites');
+        if (saved) setFavorites(JSON.parse(saved));
+      } catch (error) {
+        console.error('Error loading favorites:', error);
+      }
     };
     loadFavorites();
   }, []);
@@ -56,21 +61,38 @@ export default function HomeScreen() {
       ingredients: ingredients.split(',').map(item => item.trim()).filter(Boolean).slice(0, 10),
       preferences: { diet, time, style, category, language, isRandom }
     });
-    console.log("Sending request to:", url, "Body:", requestBody);
+    console.log('Starting fetch to:', url);
+    console.log('Request body:', requestBody);
     try {
       const response = await fetch(url, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: requestBody,
       });
-      console.log("Response status:", response.status, "OK:", response.ok);
-      if (!response.ok) throw new Error('Network response was not ok');
+      console.log('Response received:', {
+        status: response.status,
+        statusText: response.statusText,
+        ok: response.ok,
+        headers: Object.fromEntries(response.headers.entries())
+      });
+      if (!response.ok) {
+        const errorText = await response.text();
+        throw new Error(`Network response was not ok: ${response.status} - ${errorText}`);
+      }
       const data = await response.json();
-      console.log("Response data:", data);
+      console.log('Raw response data:', data);
+      // Ensure ingredients are a flat, sorted array
+      if (data.ingredients && Array.isArray(data.ingredients)) {
+        data.ingredients = data.ingredients.flat().sort((a, b) => a.localeCompare(b));
+        console.log('Sorted ingredients:', data.ingredients);
+      } else {
+        console.warn('Ingredients not an array:', data.ingredients);
+        data.ingredients = [];
+      }
       setRecipe(data);
     } catch (error) {
-      console.error("Fetch error:", error);
-      setRecipe({ title: "Error", steps: ["Something went wrong—try again! 😓"], nutrition: { calories: 0 } });
+      console.error('Fetch error:', error.message);
+      setRecipe({ title: "Error", steps: [`Fetch failed: ${error.message}`], nutrition: { calories: 0 } });
     } finally {
       setIsLoading(false);
     }
@@ -80,7 +102,11 @@ export default function HomeScreen() {
     if (recipe && !favorites.some(fav => fav.title === recipe.title)) {
       const newFavorites = [...favorites, recipe];
       setFavorites(newFavorites);
-      await AsyncStorage.setItem('favorites', JSON.stringify(newFavorites));
+      try {
+        await AsyncStorage.setItem('favorites', JSON.stringify(newFavorites));
+      } catch (error) {
+        console.error('Error saving favorites:', error);
+      }
     }
   };
 
@@ -106,13 +132,25 @@ export default function HomeScreen() {
         const emailUrl = `mailto:?subject=${encodeURIComponent('Check out this recipe!')}&body=${encodeURIComponent(fullMessage)}`;
         Platform.OS === 'web' ? window.open(emailUrl, '_blank') : await Linking.openURL(emailUrl);
       } else {
-        const result = await Share.share({
-          message: fullMessage,
-        });
+        const result = await Share.share({ message: fullMessage });
         if (result.action !== Share.sharedAction) console.log('Share dismissed');
       }
     } catch (error) {
       console.error('Share error:', error);
+    }
+  };
+
+  const copyToClipboard = async () => {
+    const currentRecipe = selectedFavorite || recipe;
+    if (!currentRecipe) return;
+
+    const textToCopy = `${currentRecipe.title}\n\nIngredients:\n${currentRecipe.ingredients.join('\n')}\n\nSteps:\n${currentRecipe.steps.join('\n')}\n\nCalories: ${currentRecipe.nutrition.calories}`;
+    try {
+      await Clipboard.setStringAsync(textToCopy);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch (error) {
+      console.error('Clipboard error:', error);
     }
   };
 
@@ -160,7 +198,7 @@ export default function HomeScreen() {
         <View style={styles.trustSection}>
           <Text style={styles.trustText}>🔒 Secure & Safe</Text>
           <Text style={styles.trustText}>🥗 Trusted by Foodies</Text>
-          <Text style={styles.trustText}>⭐ 100% Free to Use</Text>
+          <Text style={styles.trustText}>⭐ Crafted with Care</Text>
         </View>
         <InputSection
           ingredients={ingredients}
@@ -179,7 +217,12 @@ export default function HomeScreen() {
           addSuggestion={addSuggestion}
           fetchRecipe={fetchRecipe}
         />
-        {isLoading && <ActivityIndicator size="large" color="#FF6B6B" style={styles.spinner} />}
+        {isLoading && (
+          <View style={styles.spinnerContainer}>
+            <ActivityIndicator size="large" color="#FF6B6B" />
+            <Text style={styles.spinnerText}>Waking up the recipe generator with gentle spankings</Text>
+          </View>
+        )}
         <AnimatedView entering={Platform.OS !== 'web' ? FadeInUp.delay(600).duration(600) : undefined} style={styles.buttonRow}>
           <Button
             title={isLoading ? (language === 'english' ? "Cooking... 🍳🔥" : "Cocinando... 🍳🔥") : (language === 'english' ? "Generate Recipe 🎉" : "Generar Receta 🎉")}
@@ -213,6 +256,9 @@ export default function HomeScreen() {
             language={language}
             onShare={shareRecipe}
             onSave={saveFavorite}
+            extraButton={<TouchableOpacity style={styles.copyButton} onPress={copyToClipboard}>
+              <Text style={styles.copyButtonText}>{copied ? 'Copied!' : 'Copy Recipe'}</Text>
+            </TouchableOpacity>}
           />
         )}
         {showFavorites && favorites.length > 0 && (
@@ -231,19 +277,23 @@ export default function HomeScreen() {
             language={language}
             onShare={shareRecipe}
             onBack={() => setSelectedFavorite(null)}
+            extraButton={<TouchableOpacity style={styles.copyButton} onPress={copyToClipboard}>
+              <Text style={styles.copyButtonText}>{copied ? 'Copied!' : 'Copy Recipe'}</Text>
+            </TouchableOpacity>}
           />
         )}
         <AffiliateSection />
         <View style={styles.footer}>
-          <Image 
-            source={require('../assets/gt.png')} 
-            style={{ width: 80, height: 80, marginRight: 10 }} 
-          />
+          <Image source={require('../assets/gt.png')} style={{ width: 80, height: 80, marginRight: 10 }} />
           <Text style={styles.footerText}>
             © 2025 Recipe Generator |{' '}
             <Link href="/privacy-policy" style={styles.footerLink}>
               View Our Privacy Policy Here
             </Link>
+            {'\n'}For issues and questions, contact us at{' '}
+            <Text style={styles.footerLink} onPress={() => Linking.openURL('mailto:bshoemak@mac.com')}>
+              bshoemak@mac.com
+            </Text>
           </Text>
         </View>
       </AnimatedView>

@@ -2,7 +2,7 @@
 import React from 'react';
 import { View, Text, Button } from 'react-native';
 import Animated, { FadeInDown } from 'react-native-reanimated';
-import { styles } from '../(tabs)/styles'; // Correct path to app/(tabs)/
+import { styles } from '../_styles';
 
 interface RecipeCardProps {
   recipe: any;
@@ -10,9 +10,10 @@ interface RecipeCardProps {
   onShare: (platform: string) => void;
   onSave?: () => void;
   onBack?: () => void;
+  extraButton?: React.ReactNode;
 }
 
-export const RecipeCard: React.FC<RecipeCardProps> = ({ recipe, language, onShare, onSave, onBack }) => {
+export const RecipeCard: React.FC<RecipeCardProps> = ({ recipe, language, onShare, onSave, onBack, extraButton }) => {
   return (
     <Animated.View entering={FadeInDown.duration(800)} style={[styles.recipeContainer, styles.recipeCard]}>
       <Text style={styles.title}>🎉 {recipe.title} 🎉</Text>
@@ -42,13 +43,14 @@ export const RecipeCard: React.FC<RecipeCardProps> = ({ recipe, language, onShar
       <Text style={styles.detail}>🍽️ Servings: {recipe.servings || 'N/A'}</Text>
       <Text style={styles.detail}>🛠️ Equipment: {recipe.equipment ? recipe.equipment.join(', ') : 'N/A'}</Text>
       <Text style={styles.detail}>💡 Tip: {recipe.tips || 'No tips available'}</Text>
-      <View style={styles.buttonRow}>
+      <View style={styles.recipeButtons}>
         {onSave && <Button title={language === 'english' ? "Save ⭐" : "Guardar ⭐"} onPress={onSave} color="#FFD93D" />}
         <Button title={language === 'english' ? "Share 📤" : "Compartir 📤"} onPress={() => onShare('default')} color="#6AB04C" />
         <Button title="X" onPress={() => onShare('x')} color="#1DA1F2" />
         <Button title="FB" onPress={() => onShare('facebook')} color="#4267B2" />
         <Button title="WA" onPress={() => onShare('whatsapp')} color="#25D366" />
         <Button title="Email" onPress={() => onShare('email')} color="#666666" />
+        {extraButton}
         {onBack && <Button title={language === 'english' ? "Back 🔙" : "Volver 🔙"} onPress={onBack} color="#4ECDC4" />}
       </View>
     </Animated.View>

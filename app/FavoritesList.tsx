@@ -1,8 +1,8 @@
-// app/(tabs)/FavoritesList.tsx
+// app/FavoritesList.tsx
 import React from 'react';
 import { View, Text, TextInput, Button } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { styles } from './styles';
+import { styles } from './_styles';
 
 interface FavoritesListProps {
   favorites: any[];
@@ -25,7 +25,11 @@ export const FavoritesList: React.FC<FavoritesListProps> = ({
     if (confirm(language === 'english' ? `Remove ${title} from favorites?` : `¿Eliminar ${title} de favoritos?`)) {
       const newFavorites = favorites.filter(fav => fav.title !== title);
       setFavorites(newFavorites);
-      await AsyncStorage.setItem('favorites', JSON.stringify(newFavorites));
+      try {
+        await AsyncStorage.setItem('favorites', JSON.stringify(newFavorites));
+      } catch (error) {
+        console.error('Error removing favorite:', error);
+      }
       setSelectedFavorite(null);
     }
   };
@@ -52,10 +56,7 @@ export const FavoritesList: React.FC<FavoritesListProps> = ({
       {filteredFavorites.length > 0 ? (
         filteredFavorites.map((fav, index) => (
           <View key={index} style={styles.favItemContainer}>
-            <Text
-              style={styles.favItem}
-              onPress={() => onView(fav)}
-            >
+            <Text style={styles.favItem} onPress={() => onView(fav)}>
               🌟 {fav.title}
             </Text>
             <Button

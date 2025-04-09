@@ -4,7 +4,8 @@ import { View, Text, TextInput, Button } from 'react-native';
 import { Picker } from '@react-native-picker/picker';
 import Animated, { FadeInDown, FadeIn } from 'react-native-reanimated';
 import { Platform } from 'react-native';
-import { styles } from '../(tabs)/styles'; // Correct path to app/(tabs)/
+import { styles } from '../_styles';
+import { commonIngredients, cookingStyles, foodCategories } from '../_data';
 
 const AnimatedView = Platform.OS === 'web' ? View : Animated.View;
 
@@ -25,34 +26,6 @@ interface InputSectionProps {
   addSuggestion: () => void;
   fetchRecipe: () => void;
 }
-
-const commonIngredients = [
-  'arugula', 'avocado', 'bacon', 'basil', 'beans', 'beef', 'black-eyed peas', 'broccoli', 'butternut squash',
-  'capers', 'carrots', 'cauliflower', 'cheese', 'chicken', 'chickpeas', 'coconut milk', 'collard greens', 'corn',
-  'curry', 'dill', 'egg', 'eggplant', 'feta', 'fish', 'garlic', 'ginger', 'ham', 'honey', 'kale', 'lamb',
-  'lemon', 'lentils', 'mushrooms', 'okra', 'olives', 'onion', 'parmesan', 'pasta', 'pepper', 'pork',
-  'potatoes', 'quinoa', 'rice', 'rosemary', 'salmon', 'sausage', 'shrimp', 'soy sauce', 'spinach',
-  'sweet potato', 'tahini', 'thyme', 'tofu', 'tomatoes', 'zucchini', 'almonds', 'apple', 'asparagus',
-  'banana', 'blueberries', 'bread', 'butter', 'cabbage', 'celery', 'chili', 'chocolate', 'cilantro',
-  'cinnamon', 'cream', 'cucumber', 'flour', 'lime', 'milk', 'mint', 'nutmeg', 'oats', 'olive oil',
-  'orange', 'paprika', 'parsley', 'peanuts', 'pear', 'peas', 'pineapple', 'pumpkin', 'sage', 'salt',
-  'sugar', 'turmeric', 'vanilla', 'vinegar', 'walnuts', 'yogurt', 'broth', 'sesame oil', 'cumin',
-  'red pepper flakes', 'sour cream', 'tortillas', 'baking powder', 'white wine', 'garam masala',
-  'artichoke', 'barley', 'beets', 'black beans', 'brussels sprouts', 'cardamom', 'cashews', 'cheddar',
-  'cloves', 'cod', 'cranberries', 'dates', 'duck', 'fennel', 'goat cheese', 'green beans', 'hazelnuts',
-  'jalapeno', 'kiwi', 'mango', 'maple syrup', 'mozzarella', 'mustard', 'pecans', 'pesto', 'pinto beans',
-  'plum', 'pomegranate', 'radish', 'red onion', 'red wine', 'ricotta', 'saffron', 'scallions', 'shallots',
-  'squid', 'strawberries', 'sunflower seeds', 'swiss chard', 'tarragon', 'tilapia', 'trout', 'turnip',
-  'watermelon', 'whole wheat flour', 'yeast', 'anchovies', 'apricot', 'balsamic vinegar', 'bay leaves',
-  'bok choy', 'brown sugar', 'cantaloupe', 'caraway', 'caviar', 'cherry', 'chives', 'cocoa', 'coffee',
-  'coriander', 'couscous', 'crab', 'cream cheese', 'edamame', 'fig', 'grapefruit', 'grapes', 'horseradish',
-  'leek', 'lobster', 'macadamia nuts', 'mussels', 'oregano', 'oyster', 'passion fruit', 'persimmon',
-  'pistachios', 'portobello', 'raspberries', 'rhubarb', 'rye', 'sesame seeds', 'sorrel', 'soybeans',
-  'star anise', 'sweet corn', 'tamari', 'tangerine', 'tempeh', 'truffle', 'venison', 'wild rice'
-];
-
-const cookingStyles = ['asian', 'cajun', 'french', 'indian', 'latin', 'mediterranean', 'southern'];
-const foodCategories = ['dinner', 'dessert', 'breakfast', 'lunch'];
 
 export const InputSection: React.FC<InputSectionProps> = ({
   ingredients, setIngredients, diet, setDiet, time, setTime,
@@ -92,7 +65,7 @@ export const InputSection: React.FC<InputSectionProps> = ({
         onChangeText={setDiet}
         placeholderTextColor="#A0A0A0"
       />
-      <Text style={styles.label}>⏰ {language === 'english' ? 'Time ⏳' : 'Tiempo ⏳'}</Text>
+      <Text style={styles.label}>⏰ {language === 'english' ? 'Cooking Time ⏳' : 'Tiempo de Cocción ⏳'}</Text>
       <TextInput
         style={styles.input}
         placeholder={language === 'english' ? 'e.g., quick ⚡' : 'p.ej., rápido ⚡'}
@@ -100,24 +73,24 @@ export const InputSection: React.FC<InputSectionProps> = ({
         onChangeText={setTime}
         placeholderTextColor="#A0A0A0"
       />
-      <Text style={styles.label}>🌍 {language === 'english' ? 'Style 🌎' : 'Estilo 🌎'}</Text>
+      <Text style={styles.label}>🌍 {language === 'english' ? 'Culture 🌎' : 'Cultura 🌎'}</Text>
       <Picker
         selectedValue={style}
         onValueChange={(itemValue) => { setStyle(itemValue); if (ingredients) fetchRecipe(); }}
         style={styles.picker}
       >
-        <Picker.Item label={language === 'english' ? "Select style 🌟" : "Selecciona estilo 🌟"} value="" />
+        <Picker.Item label={language === 'english' ? "Select culture 🌟" : "Selecciona cultura 🌟"} value="" />
         {cookingStyles.map((s) => (
           <Picker.Item key={s} label={s.charAt(0).toUpperCase() + s.slice(1)} value={s} />
         ))}
       </Picker>
-      <Text style={styles.label}>🍽️ {language === 'english' ? 'Category 🕒' : 'Categoría 🕒'}</Text>
+      <Text style={styles.label}>🍽️ {language === 'english' ? 'Breakfast, Lunch, Dinner or Dessert 🕒' : 'Desayuno, Almuerzo, Cena o Postre 🕒'}</Text>
       <Picker
         selectedValue={category}
         onValueChange={(itemValue) => { setCategory(itemValue); if (ingredients) fetchRecipe(); }}
         style={styles.picker}
       >
-        <Picker.Item label={language === 'english' ? "Select category 🌟" : "Selecciona categoría 🌟"} value="" />
+        <Picker.Item label={language === 'english' ? "Select meal type 🌟" : "Selecciona tipo de comida 🌟"} value="" />
         {foodCategories.map((c) => (
           <Picker.Item key={c} label={c.charAt(0).toUpperCase() + c.slice(1)} value={c} />
         ))}

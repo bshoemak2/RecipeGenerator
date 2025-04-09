@@ -17,19 +17,15 @@ export default function RootLayout() {
   });
 
   useEffect(() => {
-    if (loaded) {
-      SplashScreen.hideAsync();
-    }
+    if (loaded) SplashScreen.hideAsync();
   }, [loaded]);
 
-  if (!loaded) {
-    return null;
-  }
+  if (!loaded) return null;
 
   return (
     <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+      <Stack screenOptions={{ headerShown: false }}>
+        <Stack.Screen name="index" />
         <Stack.Screen name="privacy-policy" options={{ title: 'Privacy Policy' }} />
         <Stack.Screen name="+not-found" />
       </Stack>

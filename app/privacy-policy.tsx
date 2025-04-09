@@ -37,7 +37,7 @@ export default function PrivacyPolicy() {
         </Text>
         <Text style={styles.subheader}>5. Contact Us</Text>
         <Text style={styles.paragraph}>
-          Questions? Email us at [your-email@example.com].
+          Questions? Email us at [bshoemak@mac.com].
         </Text>
         <Link href="/" style={styles.backLink}>
           Back to Home
