@@ -194,7 +194,7 @@ export default function HomeScreen() {
   return (
     <ScrollView style={styles.scrollContainer} contentContainerStyle={styles.scrollContent}>
       <AnimatedView entering={Platform.OS !== 'web' ? FadeIn.duration(800).easing(Easing.out(Easing.exp)) : undefined} style={styles.container}>
-        <Text style={styles.header}>Recipe Generator (Beta) 🍳✨</Text>
+        <Text style={styles.header}>Recipe Maker: Home-Cooked Comfort 🍳✨ (Beta) 🍳✨</Text>
         <View style={styles.trustSection}>
           <Text style={styles.trustText}>🔒 Secure & Safe</Text>
           <Text style={styles.trustText}>🥗 Trusted by Foodies</Text>
