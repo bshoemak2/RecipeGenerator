@@ -34,6 +34,16 @@ CORS(app, resources={
         ],
         "methods": ["GET", "POST", "OPTIONS"],
         "allow_headers": ["Content-Type", "Origin"]
+    },
+    r"/ingredients": {
+        "origins": [
+            "http://localhost:8080",
+            "http://localhost:8081",
+            "https://recipegenerator-ort9.onrender.com",
+            "https://recipegenerator-frontend.onrender.com"
+        ],
+        "methods": ["GET", "OPTIONS"],
+        "allow_headers": ["Content-Type", "Origin"]
     }
 }, supports_credentials=True)
 
@@ -58,6 +68,8 @@ logging.debug(f"Loaded {len(ALL_RECIPES)} recipes from database: {ALL_RECIPES}")
 if not ALL_RECIPES:
     logging.warning("No recipes found in database; falling back to dynamic generation")
 
+COOKING_METHODS = ["Bake", "Grill", "Roast", "Boil", "Fry", "Steam", "Skillet"]
+
 def score_recipe(recipe, ingredients, preferences):
     score = 0
     if not recipe or 'ingredients' not in recipe:
@@ -76,11 +88,59 @@ def score_recipe(recipe, ingredients, preferences):
                 default=0
             )
             score += best_match / 100
-    if preferences.get('diet') and preferences['diet'].lower() in recipe.get('diet', '').lower():
-        score += 0.5
-    if preferences.get('time') and preferences['time'].lower() in recipe.get('cooking_time', '').lower():
-        score += 0.3
+    # Removed diet and time scoring
     return score
+
+def process_recipe(recipe):
+    if not recipe or "error" in recipe or not isinstance(recipe, dict) or 'ingredients' not in recipe:
+        logging.debug(f"Invalid recipe object: {recipe}")
+        return None
+    try:
+        language = recipe.get('language', 'english')  # Ensure language is available
+        recipe['title'] = recipe.get(f'title_{language}', recipe.get('title_en', 'Untitled'))
+        recipe['steps'] = recipe.get(f'steps_{language}', recipe.get('steps_en', recipe.get('steps', [])))
+        if recipe['ingredients']:
+            if isinstance(recipe['ingredients'][0], (tuple, list)):
+                ingredients_list = sorted([f"{qty} {item}" if qty else item for qty, item in recipe['ingredients']], key=lambda x: x.split()[-1])
+                nutrition_items = [item for qty, item in recipe['ingredients']]
+            else:
+                ingredients_list = sorted([str(item) for item in recipe['ingredients']])
+                nutrition_items = recipe['ingredients']
+            recipe['ingredients'] = ingredients_list
+        else:
+            recipe['ingredients'] = []
+            nutrition_items = []
+        # Generate title with random method if Untitled
+        if recipe['title'] == 'Untitled' and recipe['ingredients']:
+            title_parts = [item.split()[-1].capitalize() for item in recipe['ingredients'][:2]]
+            method = random.choice(COOKING_METHODS)
+            recipe['title'] = f"{method} {' and '.join(title_parts)}"
+        nutrition_future = executor.submit(calculate_nutrition, nutrition_items) if nutrition_items else None
+        share_text = generate_share_text(recipe, language, is_predefined=not recipe.get('isRandom', False))
+        recipe['nutrition'] = recipe.get('nutrition', nutrition_future.result() if nutrition_future else {"calories": 0})
+        recipe['shareText'] = share_text
+        for key in ['title_en', 'title_es', 'steps_en', 'steps_es']:
+            recipe.pop(key, None)
+        return recipe
+    except Exception as e:
+        logging.error(f"Error processing recipe: {str(e)}", exc_info=True)
+        return None
+
+INGREDIENT_CATEGORIES = {
+    "meat": sorted(["chicken", "beef", "pork", "lamb"]),
+    "vegetables": sorted(["carrot", "broccoli", "onion", "potato"]),
+    "fruits": sorted(["apple", "banana", "lemon", "orange"]),
+    "seafood": sorted(["salmon", "shrimp", "cod", "tuna"]),
+    "bread_carbs": sorted(["bread", "pasta", "rice", "tortilla"]),
+    "dairy": sorted(["cheese", "milk", "butter", "yogurt"])
+}
+
+@app.route('/ingredients', methods=['GET', 'OPTIONS'])
+@limiter.limit("50 per day")
+def get_ingredients():
+    if request.method == 'OPTIONS':
+        return '', 200
+    return jsonify(INGREDIENT_CATEGORIES)
 
 @app.route('/generate_recipe', methods=['POST', 'OPTIONS'])
 @limiter.limit("10 per minute")
@@ -102,63 +162,35 @@ def generate_recipe():
         
         language = preferences.get('language', 'english').lower()
         is_random = preferences.get('isRandom', False)
+        style = preferences.get('style', '')  # Keep style
+        category = preferences.get('category', '')  # Keep category
 
-        def process_recipe(recipe):
-            if not recipe or "error" in recipe or not isinstance(recipe, dict) or 'ingredients' not in recipe:
-                logging.debug(f"Invalid recipe object: {recipe}")
-                return None
-            try:
-                # Normalize title and steps based on language
-                recipe['title'] = recipe.get(f'title_{language}', recipe.get('title_en', 'Untitled'))
-                recipe['steps'] = recipe.get(f'steps_{language}', recipe.get('steps_en', recipe.get('steps', [])))
-                # Normalize ingredients to strings
-                if recipe['ingredients']:
-                    if isinstance(recipe['ingredients'][0], (tuple, list)):
-                        ingredients_list = sorted([f"{qty} {item}" if qty else item for qty, item in recipe['ingredients']], key=lambda x: x.split()[1])
-                        nutrition_items = [item for qty, item in recipe['ingredients']]
-                    else:
-                        ingredients_list = sorted([str(item) for item in recipe['ingredients']])
-                        nutrition_items = recipe['ingredients']
-                    recipe['ingredients'] = ingredients_list
-                else:
-                    recipe['ingredients'] = []
-                    nutrition_items = []
-                # Generate title after flattening ingredients
-                if recipe['title'] == 'Untitled' and recipe['ingredients']:
-                    title_parts = [item.split()[-1].capitalize() for item in recipe['ingredients'][:2]]  # Use last part (ingredient name)
-                    recipe['title'] = f"{' and '.join(title_parts)} Skillet"
-                nutrition_future = executor.submit(calculate_nutrition, nutrition_items) if nutrition_items else None
-                share_text = generate_share_text(recipe, language, is_predefined=not is_random)
-                recipe['nutrition'] = recipe.get('nutrition', nutrition_future.result() if nutrition_future else {"calories": 0})
-                recipe['shareText'] = share_text
-                # Clean up extra fields
-                for key in ['title_en', 'title_es', 'steps_en', 'steps_es']:
-                    recipe.pop(key, None)
-                return recipe
-            except Exception as e:
-                logging.error(f"Error processing recipe: {str(e)}", exc_info=True)
-                return None
+        def process_and_enrich_recipe(recipe):
+            processed = process_recipe({**recipe, 'language': language})
+            if processed and style:
+                processed['title'] = f"{processed['title']} ({style})"
+            if processed and category:
+                processed['title'] = f"{processed['title']} - {category}"
+            return processed
 
         if is_random:
             if ALL_RECIPES:
                 valid_recipes = [r for r in ALL_RECIPES if isinstance(r, dict) and 'ingredients' in r and ('title_en' in r or 'title_es' in r)]
-                logging.debug(f"Found {len(valid_recipes)} valid recipes out of {len(ALL_RECIPES)}: {valid_recipes}")
+                logging.debug(f"Found {len(valid_recipes)} valid recipes out of {len(ALL_RECIPES)}")
                 if valid_recipes:
                     scored_recipes = [(r, score_recipe(r, ingredients, preferences)) for r in valid_recipes]
                     top_recipes = sorted(scored_recipes, key=lambda x: x[1], reverse=True)[:5]
                     recipe = random.choice([r for r, _ in top_recipes])
                     logging.debug(f"Selected random recipe from ALL_RECIPES: {recipe}")
                 else:
-                    logging.debug("No valid recipes in ALL_RECIPES; falling back to generate_random_recipe")
                     recipe = generate_random_recipe(language)
             else:
-                logging.debug("No ALL_RECIPES; using generate_random_recipe")
                 recipe = generate_random_recipe(language)
-            processed_recipe = process_recipe(recipe)
+            processed_recipe = process_and_enrich_recipe(recipe)
             if not processed_recipe:
                 logging.warning("Random recipe failed; falling back to dynamic generation")
                 recipe = generate_dynamic_recipe([], preferences)
-                processed_recipe = process_recipe(recipe)
+                processed_recipe = process_and_enrich_recipe(recipe)
                 if not processed_recipe:
                     logging.error(f"Failed to generate fallback dynamic recipe: {recipe}")
                     return jsonify({"error": "No recipes available"}), 500
@@ -169,14 +201,14 @@ def generate_recipe():
             recipe = match_predefined_recipe(ingredients, language)
             logging.debug(f"Match predefined recipe result: {recipe}")
             if recipe:
-                processed_recipe = process_recipe(recipe)
+                processed_recipe = process_and_enrich_recipe(recipe)
                 if processed_recipe:
                     logging.info(f"Matched predefined recipe: {processed_recipe['title']}")
                     return jsonify(processed_recipe)
 
         recipe = generate_dynamic_recipe(ingredients, preferences)
         logging.debug(f"Dynamic recipe result: {recipe}")
-        processed_recipe = process_recipe(recipe)
+        processed_recipe = process_and_enrich_recipe(recipe)
         if not processed_recipe:
             logging.error(f"Failed to generate dynamic recipe: {recipe}")
             return jsonify({"error": "Recipe generation failed"}), 500
