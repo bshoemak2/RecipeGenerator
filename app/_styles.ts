@@ -37,7 +37,7 @@ export const styles = StyleSheet.create({
   trustText: { 
     fontSize: 14, 
     color: '#32CD32', // Lime Green
-    fontWeight: 'bold' // Fixed: Added missing comma after this line in previous version
+    fontWeight: 'bold' 
   },
   inputSection: { 
     marginVertical: 15, 
@@ -83,36 +83,63 @@ export const styles = StyleSheet.create({
     fontSize: 16 
   },
   recipeCard: { 
-    backgroundColor: '#FFF', 
+    backgroundColor: '#FFF8DC', // Cornsilk for a rustic feel
     padding: 15, 
-    borderRadius: 10, 
+    borderRadius: 15, 
     marginVertical: 10, 
-    borderWidth: 2, 
-    borderColor: '#FF6B6B' // Tomato
+    borderWidth: 3, 
+    borderColor: '#FF4500', // Orange Red
+    shadowColor: '#FF69B4', // Hot Pink shadow
+    shadowOffset: { width: 0, height: 4 }, 
+    shadowOpacity: 0.5, 
+    shadowRadius: 5 
   },
   recipeTitle: { 
-    fontSize: 22, 
+    fontSize: 24, 
     fontWeight: 'bold', 
     color: '#FF00A0', // Hot Pink
-    marginBottom: 10 
+    textAlign: 'center' as const, 
+    marginBottom: 10, 
+    textShadowColor: '#FFD700', // Yellow shadow
+    textShadowOffset: { width: 1, height: 1 }, 
+    textShadowRadius: 3 
+  },
+  recipeSectionContainer: { 
+    marginVertical: 8, 
+    padding: 10, 
+    backgroundColor: '#F0FFF0', // Honeydew
+    borderRadius: 10, 
+    borderWidth: 2, 
+    borderColor: '#32CD32' // Lime Green
   },
   recipeSection: { 
-    fontSize: 16, 
+    fontSize: 18, 
     fontWeight: 'bold', 
-    color: '#4ECDC4', // Turquoise
-    marginTop: 10 
+    color: '#FF4500', // Orange Red
+    marginBottom: 5 
   },
-  recipeStep: { 
+  recipeContent: { 
     fontSize: 14, 
     color: '#333', 
+    marginLeft: 5 
+  },
+  recipeItem: { 
+    fontSize: 14, 
+    color: '#4ECDC4', // Turquoise
     marginLeft: 10, 
-    marginTop: 5 
+    marginTop: 3 
+  },
+  recipeActions: { 
+    flexDirection: 'row' as const, 
+    flexWrap: 'wrap' as const, 
+    justifyContent: 'space-around' as const, 
+    marginTop: 10 
   },
   copyButton: { 
     backgroundColor: '#FF69B4', // Hot Pink
     padding: 10, 
     borderRadius: 5, 
-    marginVertical: 10, 
+    marginVertical: 5, 
     borderWidth: 2, 
     borderColor: '#FFD700' // Yellow
   },
