@@ -129,6 +129,11 @@ export default function HomeScreen() {
     try {
       if (platform === 'default') {
         await Share.share({ message: fullMessage });
+      } else if (platform === 'twitter') {
+        const tweetUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(fullMessage)}`;
+        Linking.openURL(tweetUrl);
+      } else if (platform === 'more') {
+        await Share.share({ message: fullMessage });
       }
     } catch (error) {
       console.error('Share flopped—too spicy for the interwebs:', error);
@@ -224,8 +229,12 @@ export default function HomeScreen() {
         <Text style={styles.recipeContent}>💡 Tip: {recipe.tips}</Text>
       </View>
       <View style={styles.recipeActions}>
-        {extraButton}
-        <Button title="📣 Brag to Yer Pals" onPress={() => onShare('default')} color="#FF6B6B" />
+        <TouchableOpacity style={[styles.copyButton, { backgroundColor: '#FF69B4', borderColor: '#FFD700' }]} onPress={copyToClipboard}>
+          <Text style={[styles.copyButtonText, { color: '#FFF' }]}>{copied ? 'Snagged It! 🎯' : 'Copy to Clipboard 📋'}</Text>
+        </TouchableOpacity>
+        <Button title="🐦 X Holler" onPress={() => onShare('twitter')} color="#1DA1F2" /> {/* Twitter Blue */}
+        <Button title="📣 Share to Pals" onPress={() => onShare('default')} color="#FF6B6B" />
+        <Button title="📲 More Ways to Brag" onPress={() => onShare('more')} color="#32CD32" />
         {onSave && <Button title="💾 Hoard This Gem" onPress={onSave} color="#4ECDC4" />}
         {onBack && <Button title="⬅️ Back to the Heap" onPress={onBack} color="#FFD93D" />}
       </View>
@@ -328,7 +337,7 @@ export default function HomeScreen() {
           </View>
         )}
         <AnimatedView entering={Platform.OS !== 'web' ? FadeInUp.delay(600).duration(600) : undefined} style={styles.buttonRow}>
-          <Button title="🍳 Cook Me a Hoot! 🎉" onPress={() => fetchRecipe(false)} disabled={isLoading} color="#FF4500" />
+          <Button title="🍳 Cook Me a Hoot! 🎉" on LOCKPress={() => fetchRecipe(false)} disabled={isLoading} color="#FF4500" />
           <Button title="🎲 Random Ruckus Recipe 🌩️" onPress={fetchRandomRecipe} disabled={isLoading} color="#FF00A0" />
           <Button title="🧹 Wipe the Slate, Bubba 🐴" onPress={clearInput} color="#4ECDC4" />
           <Button title={language === 'english' ? "🌮 Speak Español, Amigo" : "🇺🇸 Back to ‘Merican"} onPress={toggleLanguage} color="#FFD93D" />
@@ -342,7 +351,7 @@ export default function HomeScreen() {
         )}
         {recipe && recipe.title !== "Error" && !selectedFavorite && <RecipeCard recipe={recipe} language={language} onShare={shareRecipe} onSave={saveFavorite} extraButton={
           <TouchableOpacity style={[styles.copyButton, { backgroundColor: '#FF69B4', borderColor: '#FFD700' }]}>
-            <Text style={[styles.copyButtonText, { color: '#FFF' }]}>{copied ? 'Snagged It! 🎯' : 'Steal This Recipe 🏴‍☠️'}</Text>
+            <Text style={[styles.copyButtonText, { color: '#FFF' }]}>{copied ? 'Snagged It! 🎯' : 'Copy to Clipboard 📋'}</Text>
           </TouchableOpacity>
         } />}
         {showFavorites && favorites.length > 0 && (
@@ -357,7 +366,7 @@ export default function HomeScreen() {
         )}
         {selectedFavorite && <RecipeCard recipe={selectedFavorite} language={language} onShare={shareRecipe} onBack={() => setSelectedFavorite(null)} extraButton={
           <TouchableOpacity style={[styles.copyButton, { backgroundColor: '#FF69B4', borderColor: '#FFD700' }]}>
-            <Text style={[styles.copyButtonText, { color: '#FFF' }]}>{copied ? 'Snagged It! 🎯' : 'Steal This Recipe 🏴‍☠️'}</Text>
+            <Text style={[styles.copyButtonText, { color: '#FFF' }]}>{copied ? 'Snagged It! 🎯' : 'Copy to Clipboard 📋'}</Text>
           </TouchableOpacity>
         } />}
         <AffiliateSection />
