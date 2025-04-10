@@ -1,335 +1,199 @@
 // app/_styles.ts
-import { StyleSheet, Platform } from 'react-native';
+import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
-  scrollContainer: {
-    backgroundColor: '#FECACA',
-    flexGrow: 1,
+  scrollContainer: { 
+    flex: 1, 
+    backgroundColor: '#FFFACD' // Lemon Chiffon
   },
-  scrollContent: {
-    flexGrow: 1,
-    paddingBottom: 40,
+  scrollContent: { 
+    paddingBottom: 20 
   },
-  container: {
-    padding: 35,
-    gap: 25,
-    maxWidth: 900,
-    alignSelf: 'center',
-    width: '100%',
-    backgroundColor: 'rgba(255, 255, 255, 0.95)',
-    borderRadius: 20,
-    marginVertical: 25,
-    ...(Platform.OS === 'web' ? { boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.15)' } : {
-      shadowColor: '#000',
-      shadowOffset: { width: 0, height: 0 },
-      shadowOpacity: 0.15,
-      shadowRadius: 10,
-      elevation: 5,
-    }),
+  container: { 
+    padding: 15 
   },
-  header: {
-    fontSize: 40,
-    fontFamily: 'Georgia',
-    fontWeight: 'bold',
-    color: '#D32F2F',
-    textAlign: 'center',
-    ...(Platform.OS === 'web' ? { textShadow: '1px 1px 3px rgba(0, 0, 0, 0.2)' } : {}),
-    marginBottom: 10,
+  header: { 
+    fontSize: 32, 
+    fontWeight: 'bold', 
+    color: '#FF4500', // Orange Red
+    textAlign: 'center' as const, 
+    marginVertical: 10, 
+    textShadowColor: '#FFD700', // Yellow shadow
+    textShadowOffset: { width: 2, height: 2 }, 
+    textShadowRadius: 5 
   },
-  trustSection: {
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    marginBottom: 15,
+  subheader: { 
+    fontSize: 18, 
+    color: '#FF00A0', // Hot Pink
+    textAlign: 'center' as const, 
+    marginBottom: 10, 
+    fontStyle: 'italic' 
   },
-  trustText: {
-    fontSize: 14,
-    fontFamily: 'Arial',
-    color: '#4A4A4A',
-    fontWeight: '500',
+  trustSection: { 
+    flexDirection: 'row' as const, 
+    justifyContent: 'space-around' as const, 
+    marginVertical: 10 
   },
-  inputSection: {
-    gap: 20,
-    backgroundColor: 'rgba(255, 247, 247, 0.95)',
-    padding: 25,
-    borderRadius: 15,
-    ...(Platform.OS === 'web' ? { boxShadow: '0px 0px 5px rgba(0, 0, 0, 0.1)' } : {
-      shadowColor: '#000',
-      shadowOffset: { width: 0, height: 0 },
-      shadowOpacity: 0.1,
-      shadowRadius: 5,
-    }),
+  trustText: { 
+    fontSize: 14, 
+    color: '#32CD32', // Lime Green
+    fontWeight: 'bold' // Fixed: Added missing comma after this line in previous version
   },
-  label: {
-    fontSize: 20,
-    fontFamily: 'Arial',
-    color: '#4A4A4A',
-    fontWeight: '600',
-    letterSpacing: 0.5,
-    marginBottom: 5,
+  inputSection: { 
+    marginVertical: 15, 
+    backgroundColor: '#F0E68C', // Khaki
+    padding: 10, 
+    borderRadius: 10, 
+    borderWidth: 2, 
+    borderColor: '#FF69B4' // Hot Pink
   },
-  input: {
-    borderWidth: 0,
-    borderRadius: 12,
-    padding: 16,
-    fontSize: 16,
-    fontFamily: 'Arial',
-    backgroundColor: '#FFFFFF',
-    color: '#333',
-    ...(Platform.OS === 'web' ? { boxShadow: '0px 0px 4px rgba(0, 0, 0, 0.1)' } : {
-      shadowColor: '#000',
-      shadowOffset: { width: 0, height: 0 },
-      shadowOpacity: 0.1,
-      shadowRadius: 4,
-      elevation: 2,
-    }),
+  inputLabel: { 
+    fontSize: 18, 
+    fontWeight: 'bold', 
+    textAlign: 'center' as const, 
+    padding: 5, 
+    borderRadius: 5, 
+    marginBottom: 5 
   },
-  suggestionRow: {
-    flexDirection: 'row',
-    gap: 15,
-    alignItems: 'center',
-    flexWrap: 'wrap',
+  picker: { 
+    height: 50, 
+    width: '100%', 
+    borderWidth: 2, 
+    borderRadius: 10, 
+    marginBottom: 10 
   },
-  searchRow: {
-    flexDirection: 'row',
-    gap: 10,
-    alignItems: 'center',
-    marginBottom: 10,
+  spinnerContainer: { 
+    alignItems: 'center' as const, 
+    marginVertical: 20 
   },
-  picker: {
-    flex: 1,
-    height: 50,
-    backgroundColor: '#FFF',
-    borderRadius: 12,
-    borderColor: '#E0E0E0',
-    borderWidth: 1,
-    fontFamily: 'Arial',
+  spinnerText: { 
+    fontSize: 16 
   },
-  spinnerContainer: {
-    marginVertical: 20,
-    alignItems: 'center',
+  buttonRow: { 
+    flexDirection: 'row' as const, 
+    flexWrap: 'wrap' as const, 
+    justifyContent: 'space-around' as const, 
+    marginVertical: 10 
   },
-  spinnerText: {
-    fontSize: 16,
-    fontFamily: 'Arial',
-    color: '#FF6B6B',
-    marginTop: 10,
-    textAlign: 'center',
+  errorContainer: { 
+    alignItems: 'center' as const, 
+    marginVertical: 10 
   },
-  buttonRow: {
-    flexDirection: 'row',
-    gap: 20,
-    justifyContent: 'center',
-    marginTop: 20,
-    flexWrap: 'wrap',
+  error: { 
+    fontSize: 16 
   },
-  recipeContainer: {
-    marginTop: 30,
-    padding: 30,
-    backgroundColor: '#FFF',
-    borderRadius: 15,
-    borderLeftWidth: 5,
-    borderLeftColor: '#FF6B6B',
-    ...(Platform.OS === 'web' ? { boxShadow: '0px 0px 8px rgba(0, 0, 0, 0.2)' } : {
-      shadowColor: '#000',
-      shadowOffset: { width: 0, height: 0 },
-      shadowOpacity: 0.2,
-      shadowRadius: 8,
-    }),
+  recipeCard: { 
+    backgroundColor: '#FFF', 
+    padding: 15, 
+    borderRadius: 10, 
+    marginVertical: 10, 
+    borderWidth: 2, 
+    borderColor: '#FF6B6B' // Tomato
   },
-  recipeCard: {
-    borderWidth: 2,
-    borderColor: '#FF6B6B',
-    backgroundColor: '#FFF5F5',
-    ...(Platform.OS === 'web' ? { boxShadow: '0px 4px 6px rgba(0, 0, 0, 0.3)' } : {
-      shadowColor: '#000',
-      shadowOffset: { width: 0, height: 4 },
-      shadowOpacity: 0.3,
-      shadowRadius: 6,
-    }),
+  recipeTitle: { 
+    fontSize: 22, 
+    fontWeight: 'bold', 
+    color: '#FF00A0', // Hot Pink
+    marginBottom: 10 
   },
-  recipeButtons: {
-    flexDirection: 'row',
-    gap: 10,
-    justifyContent: 'center',
-    marginTop: 25,
-    flexWrap: 'wrap',
+  recipeSection: { 
+    fontSize: 16, 
+    fontWeight: 'bold', 
+    color: '#4ECDC4', // Turquoise
+    marginTop: 10 
   },
-  errorContainer: {
-    marginTop: 20,
-    padding: 20,
-    backgroundColor: '#FFF5F5',
-    borderRadius: 10,
-    borderWidth: 1,
-    borderColor: '#FF3B30',
-    alignItems: 'center',
-    ...(Platform.OS === 'web' ? { boxShadow: '0px 0px 5px rgba(0, 0, 0, 0.1)' } : {
-      shadowColor: '#000',
-      shadowOffset: { width: 0, height: 0 },
-      shadowOpacity: 0.1,
-      shadowRadius: 5,
-    }),
+  recipeStep: { 
+    fontSize: 14, 
+    color: '#333', 
+    marginLeft: 10, 
+    marginTop: 5 
   },
-  title: {
-    fontSize: 32,
-    fontFamily: 'Georgia',
-    fontWeight: '700',
-    color: '#D32F2F',
-    marginBottom: 20,
-    textAlign: 'center',
+  copyButton: { 
+    backgroundColor: '#FF69B4', // Hot Pink
+    padding: 10, 
+    borderRadius: 5, 
+    marginVertical: 10, 
+    borderWidth: 2, 
+    borderColor: '#FFD700' // Yellow
   },
-  subtitle: {
-    fontSize: 24,
-    fontFamily: 'Arial',
-    fontWeight: '600',
-    color: '#4A4A4A',
-    marginTop: 20,
-    marginBottom: 12,
-    borderBottomWidth: 2,
-    borderBottomColor: '#FF6B6B',
-    paddingBottom: 6,
+  copyButtonText: { 
+    color: '#FFF', 
+    textAlign: 'center' as const, 
+    fontWeight: 'bold' 
   },
-  listItem: {
-    fontSize: 16,
-    fontFamily: 'Arial',
-    color: '#555',
-    lineHeight: 28,
-    marginVertical: 5,
+  favoriteItem: { 
+    fontSize: 16, 
+    color: '#FFD93D', // Gold
+    padding: 10, 
+    borderBottomWidth: 1, 
+    borderBottomColor: '#ccc' 
   },
-  nutrition: {
-    fontSize: 15,
-    fontFamily: 'Arial',
-    color: '#777',
-    lineHeight: 26,
-    fontStyle: 'italic',
-    marginVertical: 3,
+  affiliateSection: { 
+    marginVertical: 20, 
+    padding: 15, 
+    backgroundColor: '#FF1493', // Deep Pink
+    borderRadius: 15, 
+    borderWidth: 3, 
+    borderColor: '#FFD700', // Yellow
+    alignItems: 'center' as const 
   },
-  detail: {
-    fontSize: 15,
-    fontFamily: 'Arial',
-    color: '#555',
-    lineHeight: 26,
-    marginVertical: 3,
+  affiliateHeader: { 
+    fontSize: 24, 
+    fontWeight: 'bold', 
+    color: '#FFD700', // Yellow
+    textAlign: 'center' as const, 
+    marginBottom: 10, 
+    textShadowColor: '#FF4500', // Orange Red shadow
+    textShadowOffset: { width: 2, height: 2 }, 
+    textShadowRadius: 5 
   },
-  favorites: {
-    marginTop: 30,
-    padding: 30,
-    backgroundColor: '#FFF',
-    borderRadius: 15,
-    borderLeftWidth: 5,
-    borderLeftColor: '#4ECDC4',
-    ...(Platform.OS === 'web' ? { boxShadow: '0px 0px 5px rgba(0, 0, 0, 0.1)' } : {
-      shadowColor: '#000',
-      shadowOffset: { width: 0, height: 0 },
-      shadowOpacity: 0.1,
-      shadowRadius: 5,
-    }),
+  affiliateButton: { 
+    flexDirection: 'row' as const, 
+    alignItems: 'center' as const, 
+    backgroundColor: '#32CD32', // Lime Green
+    padding: 10, 
+    borderRadius: 10, 
+    marginVertical: 5, 
+    borderWidth: 2, 
+    borderColor: '#FF00A0', // Hot Pink
+    width: '100%' 
   },
-  favItemContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    paddingVertical: 5,
-    borderBottomWidth: 1,
-    borderBottomColor: '#E0E0E0',
-    ...(Platform.OS === 'web' ? { transition: 'background-color 0.2s' } : {}),
+  affiliateImage: { 
+    width: 60, 
+    height: 60, 
+    marginRight: 10, 
+    borderRadius: 5, 
+    borderWidth: 2, 
+    borderColor: '#FFD700' // Yellow
   },
-  favItem: {
-    fontSize: 16,
-    fontFamily: 'Arial',
-    color: '#555',
-    lineHeight: 28,
-    marginVertical: 5,
+  affiliateText: { 
+    fontSize: 16, 
+    color: '#FFF', 
+    fontWeight: 'bold', 
+    flexShrink: 1 
   },
-  noFavorites: {
-    fontSize: 16,
-    fontFamily: 'Arial',
-    color: '#777',
-    textAlign: 'center',
-    marginVertical: 10,
+  affiliateDisclaimer: { 
+    fontSize: 12, 
+    color: '#FFFF00', // Bright Yellow
+    textAlign: 'center' as const, 
+    marginTop: 10 
   },
-  error: {
-    fontSize: 16,
-    fontFamily: 'Arial',
-    color: '#FF3B30',
-    textAlign: 'center',
-    marginBottom: 10,
-    fontWeight: '500',
+  footer: { 
+    flexDirection: 'row' as const, 
+    alignItems: 'center' as const, 
+    padding: 10, 
+    marginTop: 20, 
+    backgroundColor: '#FFD700', // Gold
+    borderTopWidth: 3, 
+    borderTopColor: '#FF4500' // Orange Red
   },
-  copyButton: {
-    backgroundColor: '#007AFF',
-    padding: 10,
-    borderRadius: 5,
-    marginTop: 10,
-    alignItems: 'center',
+  footerText: { 
+    fontSize: 12, 
+    color: '#FF4500', // Orange Red
+    fontWeight: 'bold' 
   },
-  copyButtonText: {
-    color: '#fff',
-    fontSize: 16,
-    fontFamily: 'Arial',
-  },
-  affiliateSection: {
-    marginTop: 30,
-    padding: 20,
-    backgroundColor: '#FFF',
-    borderRadius: 15,
-    ...(Platform.OS === 'web' ? { boxShadow: '0px 0px 5px rgba(0, 0, 0, 0.1)' } : {
-      shadowColor: '#000',
-      shadowOffset: { width: 0, height: 0 },
-      shadowOpacity: 0.1,
-      shadowRadius: 5,
-    }),
-  },
-  affiliateHeader: {
-    fontSize: 24,
-    fontFamily: 'Arial',
-    fontWeight: '600',
-    color: '#4A4A4A',
-    marginBottom: 15,
-    textAlign: 'center',
-  },
-  affiliateContainer: {
-    marginVertical: 15,
-    alignItems: 'center',
-  },
-  affiliateLinkLarge: {
-    fontSize: 20,
-    fontFamily: 'Arial',
-    color: '#1DA1F2',
-    textDecorationLine: 'underline',
-    marginBottom: 10,
-  },
-  affiliateImages: {
-    flexDirection: 'row',
-    gap: 10,
-    justifyContent: 'center',
-  },
-  affiliateImageLarge: {
-    width: 150,
-    height: 150,
-    marginBottom: 10,
-  },
-  affiliateDisclaimer: {
-    fontSize: 14,
-    fontFamily: 'Arial',
-    color: '#777',
-    textAlign: 'center',
-    marginTop: 15,
-    fontStyle: 'italic',
-  },
-  footer: {
-    marginTop: 20,
-    padding: 10,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  footerText: {
-    fontSize: 12,
-    fontFamily: 'Arial',
-    color: '#777',
-  },
-  footerLink: {
-    color: '#1DA1F2',
-    textDecorationLine: 'underline',
-  },
+  footerLink: { 
+    color: '#FF00A0', // Hot Pink
+    textDecorationLine: 'underline' 
+  }
 });
