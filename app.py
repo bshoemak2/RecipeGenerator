@@ -105,17 +105,14 @@ def process_recipe(recipe):
         for key in ['title_en', 'title_es', 'steps_en', 'steps_es', 'cooking_time', 'difficulty', 'servings', 'tips', 'input_ingredients']:
             recipe.pop(key, None)
         return recipe
-    except Exception as e:
-        logging.error(f"Error processing recipe: {str(e)}", exc_info=True)
-        return None
 
 INGREDIENT_CATEGORIES = {
     "meat": sorted(["ground beef", "chicken", "pork", "lamb", "pichana", "churrasco", "ribeye steaks"]),
     "vegetables": sorted(["carrot", "broccoli", "onion", "potato"]),
     "fruits": sorted(["apple", "banana", "lemon", "orange"]),
-    "seafood": sorted(["salmon", "shrimp", "cod", "tuna", "yellowtail snapper", "grouper", "red snapper", "oysters"]),
-    "bread_carbs": sorted(["bread", "pasta", "rice", "tortilla"]),
-    "dairy": sorted(["cheese", "milk", "butter", "yogurt"])
+    "seafood": sorted(["salmon", "shrimp", "cod", "tuna", "yellowtail snapper", "grouper", "red snapper", "oysters", "lobster"]),
+    "dairy": sorted(["cheese", "milk", "butter", "yogurt", "eggs"]),
+    "bread_carbs": sorted(["bread", "pasta", "rice", "tortilla"])
 }
 
 @app.route('/', methods=['GET'])
