@@ -107,7 +107,7 @@ def process_recipe(recipe):
         return recipe
 
 INGREDIENT_CATEGORIES = {
-    "meat": sorted(["ground beef", "chicken", "pork", "lamb", "pichana", "churrasco", "ribeye steaks"]),
+    "meat": sorted(["groundbeef", "chicken", "pork", "lamb", "pichana", "churrasco", "ribeye steaks"]),
     "vegetables": sorted(["carrot", "broccoli", "onion", "potato"]),
     "fruits": sorted(["apple", "banana", "lemon", "orange"]),
     "seafood": sorted(["salmon", "shrimp", "cod", "tuna", "yellowtail snapper", "grouper", "red snapper", "oysters", "lobster"]),
