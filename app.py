@@ -113,7 +113,7 @@ INGREDIENT_CATEGORIES = {
     "seafood": sorted(["salmon", "shrimp", "cod", "tuna", "yellowtail snapper", "grouper", "red snapper", "oysters", "lobster"]),
     "dairy": sorted(["cheese", "milk", "butter", "yogurt", "eggs"]),
     "bread_carbs": sorted(["bread", "pasta", "rice", "tortilla"]
-    "devil_water": sorted(["beer", "moonshine", "whiskey", "vodka", "tequila"])
+    "devil_water": sorted(["beer", "moonshine", "whiskey", "vodka", "tequila"]
 }
 
 @app.route('/', methods=['GET'])
